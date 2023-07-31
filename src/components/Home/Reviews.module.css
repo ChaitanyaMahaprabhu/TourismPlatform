@@ -1,44 +1,13 @@
 .faqEncompass {
-  height: 100vh;
+  height: 50vh;
   width: 100vw;
   background-color: white;
-  border: solid 1rem black;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem;  
-}
-
-.top{
-  border-radius: 1rem;
-  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  grid-column: 2;
-}
+  overflow-y: hidden;
+  overflow-x: scroll;
 
-.reviews{
-  border-radius: 1rem;
-  grid-column: 1;
+  padding: 2rem;
 
-  padding: 5rem 0rem 5rem 0.5rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 100%;
-
-  background-color: purple;
-}
-
-.heading{
-  font-family: "Merriweather";
-  font-size: 4rem;
-  color: black;
-}
-
-.subHeading{
-  font-family: "Commissioner";
-  font-size: 2rem;
-  color: black;
+  border-radius: 2rem;
 }

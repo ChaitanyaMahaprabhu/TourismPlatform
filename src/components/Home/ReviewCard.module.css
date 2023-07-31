@@ -9,12 +9,13 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  margin-bottom: 2rem;
+  margin-right: 4rem;
 }
 
 .details{
     grid-row: 1 / 2;
     padding: 1rem;
+    width: 30rem;
 }   
 
 .name{
