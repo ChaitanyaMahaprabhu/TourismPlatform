@@ -21,7 +21,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 1fr);
 
-  animation: background 10s infinite;
+  animation: background 8s infinite;
 }
 
 @keyframes background {
