@@ -1,7 +1,7 @@
-import styles from "./FaqCard.module.css";
-const FaqCard = (props) => {
+import styles from "./ReviewCard.module.css";
+const ReviewCard = (props) => {
   
-  const stars = "";
+  let stars = "";
   for(let i = 0;i < props.stars;i++){
     stars += "⭐";
   }
@@ -14,16 +14,11 @@ const FaqCard = (props) => {
             {props.name}
           </h1>
           <p className={styles.duration} style={{ marginLeft: "0.3rem" }}>
-            {props.duration}
+            {props.duration} months ago.
           </p>
-        </div>
-
-        <div className={styles.review}>
-          <span class="material-symbols-outlined" style = {{fontSize: "4rem"}}>format_quote</span>
-          <p className = {styles.words}>{props.review}</p>
         </div>
     </div>
   );
 };
 
-export { FaqCard };
+export { ReviewCard };

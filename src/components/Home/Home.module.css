@@ -1,0 +1,18 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+.bold {
+    scroll-snap-align: start; 
+}
+
+.reviews {
+    scroll-snap-align: start; 
+}
+
+.footer {
+    scroll-snap-align: start; 
+}

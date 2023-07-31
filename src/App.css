@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
 body {
   margin: 0px;
+  overflow-x: hidden;
 }
 
 * {
@@ -24,7 +25,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: white;
+  background: tomato;
 }
 
 ::-webkit-scrollbar-thumb:hover {

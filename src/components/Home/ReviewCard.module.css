@@ -9,30 +9,19 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  margin-bottom: 2rem;
 }
 
 .details{
     grid-row: 1 / 2;
-    border-bottom: solid 0.5rem black;
     padding: 1rem;
-}
-
-.review{
-    grid-row: 2 / 3;
-    padding: 1rem;
-}
+}   
 
 .name{
     font-family: "Merriweather";
+    margin-top: 1rem;
 }
 
 .duration{
     font-family: "Commissioner";
-}
-
-.words{
-    font-family: "Commissioner";
-    font-size: 1.2rem;
-    margin-left: 2rem;
 }
