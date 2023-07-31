@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <div className={styles.footerEncompass}>
       <div className={styles.brandInfo}>
-        <h1 className={styles.brand}>Make My Trip</h1>
+        <h1 className={styles.brand}>Make My Trip.</h1>
         <h6 className={styles.desc}>
           Thank you for visiting us. This is a passionate creation of Kanini
           Software Solutions, headed by Chaitanya Mahaprabhu. Feel free to
