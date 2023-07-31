@@ -1,13 +1,11 @@
 .faqEncompass {
   height: 50vh;
   width: 100vw;
-  background-color: white;
+  background-color: wheat;
 
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
 
-  padding: 2rem;
-
-  border-radius: 2rem;
+  padding: 2rem 2rem 3rem 2rem;
 }
