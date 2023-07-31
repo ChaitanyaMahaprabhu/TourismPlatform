@@ -4,15 +4,113 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -2;
     background-color: black;
 
     transition: all 0.5s ease-in;
+
+    overflow: hidden;
 }
 
 .coverImage{
     object-fit: cover;
     height: 100vh;
     width: 100vw;
+    position: relative;
+    z-index: -1;
 
     transition: all 0.5s ease-in;
+
+    animation: expand 30s infinite;
+}
+
+@keyframes expand{
+    0%{
+        width: 100vw;
+    }
+
+    50%{
+        width: 120vw;
+    }
+
+    100%{
+        width: 100vw;
+    }
+}
+
+.backdrop{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(1, 20, 10, 0.6);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    padding: 1rem;
+}
+
+.navbar{
+    grid-row: 1/2;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.boldContent{
+    grid-row: 2/9;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.textContent{
+    margin-left: 2rem;
+}
+
+.specialText{
+    font-family: "Zeyada";
+}
+
+.normalText{
+    font-family: "Permanent Marker";
+}
+
+.specialText, .normalText{
+    color: white;
+    font-size: 6.5rem;
+}
+
+.options{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    color: white;
+    border-radius: 10rem;
+    padding: 0.3rem;
+}
+
+.logreg{
+    color: white;
+    border-radius: 300rem;
+    padding: 0.3rem 2rem 0rem 2rem;
+}
+
+.logo:hover{
+    background-color: white;
+    color: black;
+}
+
+.logreg:hover{
+    background-color: white;
+    color: black;   
 }
