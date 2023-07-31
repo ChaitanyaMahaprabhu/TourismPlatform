@@ -21,13 +21,13 @@ const Footer = () => {
           <h2 className={styles.navs}><a href = "https://kanini.com/blog/">Blog</a></h2>
         </div>
         <div className={styles.products}>
-          <h1 className={styles.heading}>Products</h1>
+          <h1 className={styles.heading} style = {{marginRight: '7rem'}}>Products</h1>
           <br />
           <h2 className={styles.navs}>Make My Trip</h2>
           <h2 className={styles.navs}><a href = "https://play.google.com/store/apps/details?id=com.fielda.android&hl=en&gl=US">Fielda</a></h2>
         </div>
         <div className={styles.address}>
-          <h1 className={styles.heading}>Address</h1>
+          <h1 className={styles.heading} style = {{marginRight: '14rem'}}>Address</h1>
           <address className={styles.navs} style = {{marginTop: "1rem"}}>
             Kanini Software Solutions Chennai
           </address>
