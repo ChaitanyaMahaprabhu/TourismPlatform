@@ -1,0 +1,103 @@
+.footerEncompass {
+  height: 100vh;
+  width: 100vw;
+  /* background: linear-gradient(60deg, plum, pink, powderblue, pink, plum); */
+  background: #ff4e50; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    60deg,
+    #f9d423,
+    #ff4e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    60deg,
+    #f9d423,
+    #ff4e50
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: 200% 200%;
+  padding: 5rem 0rem 0rem 5rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+
+  animation: background 10s infinite;
+}
+
+@keyframes background {
+  0% {
+    background-position: 10% 50%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 10% 50%;
+  }
+}
+
+.brand {
+  font-family: "Fredericka the Great";
+  font-size: 3rem;
+}
+
+.brandInfo {
+  width: 50%;
+  grid-row: 1 / 2;
+}
+
+.desc {
+  font-family: "Commissioner";
+  font-size: 1.2rem;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  grid-row: 3 / 6;
+}
+
+.products,
+.address {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6rem;
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-family: "Merriweather";
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.navs {
+  font-family: "Commissioner";
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.icons {
+  height: 2rem;
+  width: 2rem;
+}
+
+.navs:hover {
+  background-color: white;
+  color: black;
+}
