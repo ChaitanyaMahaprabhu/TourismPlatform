@@ -48,7 +48,7 @@ const Bold = () => {
           </div>
 
           <div className={styles.moveDown}>
-          <span class="material-symbols-outlined" style={{ fontSize: "5rem"}}>expand_more</span>
+          <span class="material-symbols-outlined" style={{ fontSize: "4rem"}}>expand_more</span>
           </div>
         </div>
       </div>
