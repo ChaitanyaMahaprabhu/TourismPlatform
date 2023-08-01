@@ -5,12 +5,14 @@ import { Footer } from "./components/Footer/Footer";
 import { SharedData } from "./context/SharedData";
 import { Home } from "./components/Home/Home";
 import { Login } from "./components/Login/Login";
+import {AgentRegistration} from "./components/Register/AgentRegistration";
+import {TravellerRegistration} from "./components/Register/TravellerRegistration";
 
 function App() {
   return (
     <>
       <SharedData>
-        <Login/>
+        <AgentRegistration/>
       </SharedData>
     </>
   );

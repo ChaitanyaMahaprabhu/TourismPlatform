@@ -115,9 +115,6 @@ label{
     color: white;
 }
 
-input, select{
-    margin-top: 0.2rem;
-}
 
 .links{
     text-decoration: none;
@@ -129,4 +126,8 @@ input, select{
 .links:hover{
     background-color: white;
     color: black;
+}
+
+.userInput{
+  margin-top: 1rem;
 }
