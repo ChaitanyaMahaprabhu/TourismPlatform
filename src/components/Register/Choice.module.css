@@ -1,0 +1,61 @@
+.choiceEncompass{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, black 50%, white 50%);
+    background-size: 200% 200%;
+    color: white;
+    animation: bw 6s infinite;
+}
+
+@keyframes bw {
+    0%{
+        background-size: 200% 200%;
+    }
+
+    50%{
+        background-size: 68% 200%;
+    }
+
+    100%{
+        background-size: 200% 200%;
+    }
+}
+.choices{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main{
+    font-family: "Merriweather";
+    font-size: 4rem;
+    margin-left: 1rem;
+}
+
+.subheading{
+    font-family: "Commissioner";
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.traveller, .agent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.traveller{
+    border-right: dotted 0.2rem black;
+}
