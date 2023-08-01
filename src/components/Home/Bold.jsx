@@ -4,6 +4,18 @@ import { useState, useEffect } from "react";
 const Bold = () => {
   const [image, setImage] = useState(Math.round(Math.random() * 9 + 1));
 
+  useEffect(() => {
+    setTimeout(() => {
+      while (true) {
+        let rndm = Math.round(Math.random() * 9 + 1);
+        if (rndm != image) {
+          setImage(rndm);
+          break;
+        }
+      }
+    }, 3000);
+  });
+
   return (
     <div className={styles.boldEncompass}>
       <img
@@ -20,6 +32,7 @@ const Bold = () => {
             >
               travel_explore
             </span>
+            <h5 className={styles.logo}>Make My Trip.</h5>
           </h5>
           <div className={styles.options}>
             <h5 className={styles.logreg} style={{ marginRight: "1rem" }}>
@@ -43,12 +56,19 @@ const Bold = () => {
 
         <div className={styles.boldContent}>
           <div className={styles.textContent}>
-            <h1 className = {styles.normalText}>Lifelong Memories,</h1>
-            <h1 className = {styles.normalText}>Just a few clicks away</h1>
+            <h1 className={styles.normalText}>
+              Lifelong <span>Memories</span>,
+            </h1>
+            <h1 className={styles.normalText}>Just a few clicks away.</h1>
           </div>
 
           <div className={styles.moveDown}>
-          <span class="material-symbols-outlined" style={{ fontSize: "4rem"}}>expand_more</span>
+            <span
+              class="material-symbols-outlined"
+              style={{ fontSize: "4rem" }}
+            >
+              expand_more
+            </span>
           </div>
         </div>
       </div>

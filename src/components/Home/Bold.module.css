@@ -18,7 +18,7 @@
 
   transition: all 0.5s ease-in;
 
-  animation: expand 30s infinite;
+  animation: expand 40s infinite;
 }
 
 @keyframes expand {
@@ -42,7 +42,7 @@
   top: 0;
   left: 0;
 
-  background-color: rgba(1, 20, 10, 0.5);
+  background-color: rgba(1, 20, 10, 0.3);
 
   display: grid;
   grid-template-columns: 1fr;
@@ -78,7 +78,7 @@
 }
 
 .normalText {
-  font-family: "Commisioner";
+  font-family: "Love Ya Like A Sister";
 }
 
 .specialText,
@@ -96,6 +96,10 @@
   color: white;
   border-radius: 10rem;
   padding: 0.3rem;
+  font-family: "Fredericka the Great";
+
+  display: flex;
+  flex-direction: row;
 }
 
 .logreg {

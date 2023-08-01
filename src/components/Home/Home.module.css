@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: y mandatory;
+    perspective: 10px;
 }
 
 .bold {
