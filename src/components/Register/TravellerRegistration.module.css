@@ -141,3 +141,8 @@
     padding: 0rem 1rem 0rem 1rem;
     border-radius: 2rem;
   }
+
+  .pass{
+    display: flex;
+    justify-content: space-around;
+  }

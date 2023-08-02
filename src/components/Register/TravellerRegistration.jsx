@@ -1,6 +1,6 @@
 import styles from "./TravellerRegistration.module.css";
 import { useState } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const TravellerRegistration = () => {
   const [gradient, setGradient] = useState(
@@ -10,6 +10,37 @@ const TravellerRegistration = () => {
       Math.random() * 250 + 1
     })`
   );
+
+  const [pass, setPass] = useState("");
+  const [uppercase, setUppercase] = useState(false);
+  const [lowercase, setLowercase] = useState(false);
+  const [number, setNumber] = useState(false);
+  const [special, setSpecial] = useState(false);
+  let allTrue = false;
+
+  if (
+    uppercase == true &&
+    lowercase == true &&
+    number == true &&
+    special == true
+  ) {
+    allTrue = true;
+  }
+
+  const u_pattern = /[A-Z]+/;
+  const l_pattern = /[a-z]+/;
+  const n_pattern = /[0-9]+/;
+  const s_pattern = /[#$%^&@!()_=\-+]+/;
+
+  const changeHandler = (e) => {
+    setPass(e.target.value);
+    console.log(e.target.value);
+
+    setUppercase(u_pattern.test(e.target.value) ? true : false);
+    setLowercase(l_pattern.test(e.target.value) ? true : false);
+    setNumber(n_pattern.test(e.target.value) ? true : false);
+    setSpecial(s_pattern.test(e.target.value) ? true : false);
+  };
 
   return (
     <div className={styles.loginEncompass}>
@@ -125,8 +156,39 @@ const TravellerRegistration = () => {
                     class="form-control"
                     id="password"
                     name="password"
+                    onChange={changeHandler}
+                    style={{
+                      color: `${allTrue ? "green" : "red"}`,
+                      border: `2px solid ${allTrue ? "green" : "red"}`,
+                    }}
                     required
                   />
+                  <label for="password" className={styles.pass}>
+                    <span
+                      style={{ color: `${uppercase ? "green" : "red"}` }}
+                      id="uppercase"
+                    >
+                      A
+                    </span>
+                    <span
+                      style={{ color: `${lowercase ? "green" : "red"}` }}
+                      id="lowercase"
+                    >
+                      a
+                    </span>
+                    <span
+                      style={{ color: `${number ? "green" : "red"}` }}
+                      id="number"
+                    >
+                      0-9
+                    </span>
+                    <span
+                      style={{ color: `${special ? "green" : "red"}` }}
+                      id="special"
+                    >
+                      #
+                    </span>
+                  </label>
                 </div>
               </div>
 
@@ -147,11 +209,15 @@ const TravellerRegistration = () => {
                   marginTop: "1rem",
                 }}
               >
-                <p className={styles.heading} style={{marginRight: "1rem" }}>
-                  <Link to="/Login"><span style = {{color: "white"}}>Login</span></Link>
+                <p className={styles.heading} style={{ marginRight: "1rem" }}>
+                  <Link to="/Login">
+                    <span style={{ color: "white" }}>Login</span>
+                  </Link>
                 </p>
                 <p className={styles.heading} style={{ marginLeft: "1rem" }}>
-                  <Link to="/"><span style = {{color: "white"}}>Home</span></Link>
+                  <Link to="/">
+                    <span style={{ color: "white" }}>Home</span>
+                  </Link>
                 </p>
               </div>
             </form>
