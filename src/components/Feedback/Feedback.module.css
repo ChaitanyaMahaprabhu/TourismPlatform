@@ -8,7 +8,7 @@
 }
 
 .title {
-  background-color: honeydew;
+  background-color: black;
   padding: 3rem;
 }
 
@@ -21,11 +21,13 @@
 .heading {
   font-family: "Merriweather";
   font-size: 4rem;
+  color: goldenrod;
 }
 
 .subheading {
   font-family: "Commissioner";
   font-size: 1.5rem;
+  color: white;
 }
 
 .stars {
@@ -58,6 +60,6 @@
   font-size: 4rem;
 }
 
-.submit{
-    height: 1rem;
+.submit {
+  height: 1rem;
 }
