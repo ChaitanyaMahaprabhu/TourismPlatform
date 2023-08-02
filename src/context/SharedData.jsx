@@ -31,7 +31,10 @@ const SharedData = (props) => {
       ];
 
       const data = {
-        questions
+        questions,
+        users: 100,
+        trips: 200,
+        reviews: 80
       };
 
     return(

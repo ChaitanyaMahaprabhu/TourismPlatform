@@ -1,9 +1,15 @@
 import styles from "./Bold.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { context } from "../../context/SharedData";
 
 const Bold = () => {
+  const sharedData = useContext(context);
+
   const [image, setImage] = useState(Math.round(Math.random() * 9 + 1));
+  const [users, setUsers] = useState(0);
+  const [trips, setTrips] = useState(0);
+  const [reviews, setReviews] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -14,8 +20,16 @@ const Bold = () => {
           break;
         }
       }
-    }, 3000);
-  });
+    }, 5000);
+  }, [image]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (users < sharedData.users) setUsers(users + 2);
+      if (trips < sharedData.trips) setTrips(trips + 4);
+      if (reviews < sharedData.reviews) setReviews(reviews + 3);
+    }, 100);
+  }, [users, trips, reviews]);
 
   return (
     <div className={styles.boldEncompass}>
@@ -65,6 +79,11 @@ const Bold = () => {
               Lifelong <span>Memories</span>,
             </h1>
             <h1 className={styles.normalText}>Just a few clicks away.</h1>
+            <div style={{ display: "flex" }}>
+              <h3 className={styles.counter}>{users} Users</h3>
+              <h3 className={styles.counter}>{trips} Trips</h3>
+              <h3 className={styles.counter}>{reviews} Reviews</h3>
+            </div>
           </div>
 
           <div className={styles.moveDown}>

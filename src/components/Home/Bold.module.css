@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Benne&display=swap");
+
 .boldEncompass {
   height: 100vh;
   width: 100vw;
@@ -73,18 +76,21 @@
   margin-top: 6em;
 }
 
-.specialText {
-  font-family: "Zeyada";
+.normalText {
+  font-family: "Benne";
+  font-size: 4rem;
 }
 
-.normalText {
-  font-family: "Love Ya Like A Sister";
+.counter {
+  font-family: "Smooch Sans";
+  margin-right: 2rem;
+  margin-top: 3rem;
 }
 
 .specialText,
-.normalText {
+.normalText, 
+.counter{
   color: white;
-  font-size: 4rem;
 }
 
 .options {
@@ -125,7 +131,7 @@
 }
 
 @keyframes hover {
-  50%{
+  50% {
     transform: translateY(1.5rem);
   }
 }

@@ -48,7 +48,7 @@ const Choice = () => {
                 setHover((prev) => ({ ...prev, traveller: false }));
               }}
               style={{
-                transform: `translateY(${hover.traveller ? "-2rem" : "0rem"})`,
+                transform: `translateY(${hover.traveller ? "-1rem" : "0rem"})`,
               }}
             >
               Traveller
@@ -67,7 +67,7 @@ const Choice = () => {
                 setHover((prev) => ({ ...prev, agent: false }));
               }}
               style={{
-                transform: `translateY(${hover.agent ? "-2rem" : "0rem"})`,
+                transform: `translateY(${hover.agent ? "-1rem" : "0rem"})`,
               }}
             >
               Agent
