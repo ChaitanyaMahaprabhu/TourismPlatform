@@ -1,5 +1,6 @@
 import styles from "./Bold.module.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Bold = () => {
   const [image, setImage] = useState(Math.round(Math.random() * 9 + 1));
@@ -36,20 +37,24 @@ const Bold = () => {
           </h5>
           <div className={styles.options}>
             <h5 className={styles.logreg} style={{ marginRight: "1rem" }}>
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "2rem" }}
-              >
-                login
-              </span>
+              <Link to="/Login">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "2rem" }}
+                >
+                  login
+                </span>
+              </Link>
             </h5>
             <h5 className={styles.logreg}>
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "2rem" }}
-              >
-                how_to_reg
-              </span>
+              <Link to="/Choice">
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "2rem" }}
+                >
+                  how_to_reg
+                </span>
+              </Link>
             </h5>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import styles from "./TravellerRegistration.module.css";
 import { useState } from "react";
+import {Link} from 'react-router-dom';
 
 const TravellerRegistration = () => {
   const [gradient, setGradient] = useState(
@@ -98,7 +99,7 @@ const TravellerRegistration = () => {
                   />
                 </div>
               </div>
-              
+
               <div
                 style={{
                   display: "flex",
@@ -129,7 +130,11 @@ const TravellerRegistration = () => {
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-dark" style = {{marginTop: "1rem", width: "20rem"}}>
+              <button
+                type="submit"
+                class="btn btn-dark"
+                style={{ marginTop: "1rem", width: "20rem" }}
+              >
                 Submit
               </button>
 
@@ -143,14 +148,10 @@ const TravellerRegistration = () => {
                 }}
               >
                 <p className={styles.heading} style={{ marginRight: "1rem" }}>
-                  <a href="#" className={styles.links}>
-                    Login
-                  </a>
+                  <Link to="/Login">Login</Link>
                 </p>
                 <p className={styles.heading} style={{ marginLeft: "1rem" }}>
-                  <a href="#" className={styles.links}>
-                    Home
-                  </a>
+                  <Link to="/">Home</Link>
                 </p>
               </div>
             </form>

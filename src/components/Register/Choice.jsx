@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Choice.module.css";
+import { Link } from "react-router-dom";
+
 const Choice = () => {
   const [hover, setHover] = useState({
     traveller: false,
@@ -26,37 +28,41 @@ const Choice = () => {
 
       <div className={styles.choices}>
         <div className={styles.traveller}>
-          <h1
-            className={styles.main}
-            onMouseOver={() => {
-              setHover((prev) => ({ ...prev, traveller: true }));
-            }}
-            onMouseOut={() => {
-              setHover((prev) => ({ ...prev, traveller: false }));
-            }}
-            style={{
-              transform: `translateY(${hover.traveller ? "-2rem" : "0rem"})`,
-            }}
-          >
-            Traveller
-          </h1>
+          <Link to="/TravellerRegistration">
+            <h1
+              className={styles.main}
+              onMouseOver={() => {
+                setHover((prev) => ({ ...prev, traveller: true }));
+              }}
+              onMouseOut={() => {
+                setHover((prev) => ({ ...prev, traveller: false }));
+              }}
+              style={{
+                transform: `translateY(${hover.traveller ? "-2rem" : "0rem"})`,
+              }}
+            >
+              Traveller
+            </h1>
+          </Link>
         </div>
 
         <div className={styles.agent}>
-          <h1
-            className={styles.main}
-            onMouseOver={() => {
-              setHover((prev) => ({ ...prev, agent: true }));
-            }}
-            onMouseOut={() => {
-              setHover((prev) => ({ ...prev, agent: false }));
-            }}
-            style={{
-              transform: `translateY(${hover.agent ? "-2rem" : "0rem"})`,
-            }}
-          >
-            Agent
-          </h1>
+          <Link to="/AgentRegistration">
+            <h1
+              className={styles.main}
+              onMouseOver={() => {
+                setHover((prev) => ({ ...prev, agent: true }));
+              }}
+              onMouseOut={() => {
+                setHover((prev) => ({ ...prev, agent: false }));
+              }}
+              style={{
+                transform: `translateY(${hover.agent ? "-2rem" : "0rem"})`,
+              }}
+            >
+              Agent
+            </h1>
+          </Link>
         </div>
       </div>
     </div>

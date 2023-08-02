@@ -1,5 +1,7 @@
 import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
+import {Link} from 'react-router-dom';
+
 const Login = () => {
   const [gradient, setGradient] = useState(
     `rgb(${Math.random() * 250 + 1}, ${Math.random() * 250 + 1}, ${
@@ -32,7 +34,7 @@ const Login = () => {
         >
           <div>
             <h1 className={styles.heading} style={{ marginTop: "4rem" }}>
-              - Welcome Back - 
+              - Welcome Back -
             </h1>
             <p className={styles.subheading}>
               To log in, please enter your username and password
@@ -87,10 +89,10 @@ const Login = () => {
                 }}
               >
                 <p className={styles.heading} style={{ marginRight: "1rem" }}>
-                  <a href="#" className = {styles.links}>Register</a>
+                  <Link to="/Choice">Register</Link>
                 </p>
                 <p className={styles.heading} style={{ marginLeft: "1rem" }}>
-                  <a href="#" className = {styles.links}>Home</a>
+                  <Link to="/">Home</Link>
                 </p>
               </div>
             </form>
