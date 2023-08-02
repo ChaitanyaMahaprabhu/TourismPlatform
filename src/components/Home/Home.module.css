@@ -1,19 +1,26 @@
 .home {
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
-    perspective: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  perspective: 10px;
 }
 
 .bold {
-    scroll-snap-align: start; 
+  scroll-snap-align: start;
 }
 
 .reviews {
-    scroll-snap-align: start; 
+  scroll-snap-align: start;
 }
 
 .footer {
-    scroll-snap-align: start; 
+  scroll-snap-align: start;
+}
+
+.feedback {
+  scroll-snap-align: start;
+}
+body {
+  scroll-snap-type: y mandatory;
 }
