@@ -147,11 +147,11 @@ const TravellerRegistration = () => {
                   marginTop: "1rem",
                 }}
               >
-                <p className={styles.heading} style={{ marginRight: "1rem" }}>
-                  <Link to="/Login">Login</Link>
+                <p className={styles.heading} style={{marginRight: "1rem" }}>
+                  <Link to="/Login"><span style = {{color: "white"}}>Login</span></Link>
                 </p>
                 <p className={styles.heading} style={{ marginLeft: "1rem" }}>
-                  <Link to="/">Home</Link>
+                  <Link to="/"><span style = {{color: "white"}}>Home</span></Link>
                 </p>
               </div>
             </form>
