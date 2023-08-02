@@ -1,15 +1,16 @@
 .agentPageEncompass {
   height: 100vh;
   width: 100vw;
-  background-color: teal;
+  background-color:slategray;
+
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
 }
 
 .agentNav {
   background-color: black;
   height: 100vh;
-  width: 5vw;
-  position: fixed;
-  left: 0;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -17,6 +18,7 @@
   align-items: center;
 
   padding: 2rem 0rem 2rem 0rem;
+  grid-column: 1/2;
 }
 
 .mainOptions {
@@ -43,4 +45,39 @@
 .options:hover{
     background-color: white;
     color: black;
+}
+
+.agentWorking{
+  width: 100%;
+  height: 100%;
+  grid-column: 2/21;
+}
+
+.top{
+  width: 100%;
+  height: 8rem;
+
+  background-size: 200% 200%;
+  animation: gradient 10s infinite;
+}
+
+.decor{
+  height: 100%;
+  width: 100%;
+  mix-blend-mode: screen;
+  opacity: 0.4;
+}
+
+@keyframes gradient {
+  0% {
+    background-size: 100% 200%;
+  }
+
+  50% {
+    background-size: 250% 200%;
+  }
+
+  100% {
+    background-size: 100% 200%;
+  }
 }
