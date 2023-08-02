@@ -10,6 +10,7 @@ import { TravellerRegistration } from "./components/Register/TravellerRegistrati
 import { Choice } from "./components/Register/Choice";
 import { Form, Route, Routes } from "react-router-dom";
 import { NotFound } from "./components/NotFound/NotFound";
+import { Feedback } from "./components/Feedback/Feedback";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           <Route path="/AgentRegistration" element={<AgentRegistration />} />
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
+
+          {/* test */}
+          <Route path="/test" element={<Feedback />} />
         </Routes>
       </SharedData>
     </>
