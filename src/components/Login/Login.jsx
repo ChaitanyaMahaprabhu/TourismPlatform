@@ -89,10 +89,10 @@ const Login = () => {
                 }}
               >
                 <p className={styles.heading} style={{ marginRight: "1rem" }}>
-                  <Link to="/Choice">Register</Link>
+                  <Link to="/Choice" style = {{color: "white"}}>Register</Link>
                 </p>
                 <p className={styles.heading} style={{ marginLeft: "1rem" }}>
-                  <Link to="/">Home</Link>
+                  <Link to="/" style = {{color: "white"}}>Home</Link>
                 </p>
               </div>
             </form>

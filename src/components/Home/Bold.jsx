@@ -37,7 +37,7 @@ const Bold = () => {
           </h5>
           <div className={styles.options}>
             <h5 className={styles.logreg} style={{ marginRight: "1rem" }}>
-              <Link to="/Login">
+              <Link to="/Login" style={{ color: "white" }}>
                 <span
                   className="material-symbols-outlined"
                   style={{ fontSize: "2rem" }}
@@ -47,7 +47,7 @@ const Bold = () => {
               </Link>
             </h5>
             <h5 className={styles.logreg}>
-              <Link to="/Choice">
+              <Link to="/Choice" style={{ color: "white" }}>
                 <span
                   className="material-symbols-outlined"
                   style={{ fontSize: "2rem" }}

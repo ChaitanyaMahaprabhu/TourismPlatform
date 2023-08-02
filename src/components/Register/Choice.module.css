@@ -59,3 +59,11 @@
 .traveller{
     border-right: dotted 0.2rem black;
 }
+
+.home{
+    mix-blend-mode: difference;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.5rem;
+}

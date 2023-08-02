@@ -24,6 +24,16 @@ const Choice = () => {
         >
           Choose one of the options below
         </h4>
+        <h1 className={styles.home}>
+          <Link to="/">
+            <span
+              className="material-symbols-outlined"
+              style={{ fontSize: "2rem", mixBlendMode: "difference", color: "white"}}
+            >
+              home
+            </span>
+          </Link>
+        </h1>
       </div>
 
       <div className={styles.choices}>

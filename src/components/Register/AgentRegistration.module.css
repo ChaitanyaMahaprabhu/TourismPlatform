@@ -131,3 +131,13 @@ label{
 .userInput{
   margin-top: 1rem;
 }
+
+.heading:hover{
+  background-color: rgba(1, 1, 1, 0.4);
+  box-shadow: 1px 1px 8px 2px white;
+}
+
+.heading{
+  padding: 0rem 1rem 0rem 1rem;
+  border-radius: 2rem;
+}
