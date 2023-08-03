@@ -7,19 +7,25 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
     const [scroll, setScroll] = useState(false);
+    const [top, setTop] = useState(false);
     useEffect(() => {
         if(scroll == true){
             window.scrollTo(0, 780);
             setScroll(false);
         }
-    }, [scroll]);
+
+        if(top == true){
+            window.scrollTo(0, 0);
+            setTop(false);
+        }
+    }, [scroll, top]);
 
     return(
         <div className = {styles.home}>
             <Bold className = {styles.bold} setScroll = {setScroll}/>
             <Reviews className = {styles.reviews}/>
             <Feedback className = {styles.feedback}/>
-            <Footer className = {styles.footer}/>
+            <Footer className = {styles.footer} setTop = {setTop}/>
         </div>
     );
 }
