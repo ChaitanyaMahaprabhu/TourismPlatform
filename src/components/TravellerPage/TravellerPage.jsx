@@ -2,14 +2,6 @@ import styles from "./TravellerPage.module.css";
 import { useState } from "react";
 
 const TravellerPage = () => {
-  
-  const [gradient, setGradient] = useState(
-    `rgb(${Math.random() * 250 + 1}, ${Math.random() * 250 + 1}, ${
-      Math.random() * 250 + 1
-    }), rgb(${Math.random() * 250 + 1}, ${Math.random() * 250 + 1}, ${
-      Math.random() * 250 + 1
-    })`
-  );
 
   return (
     <div className={styles.travellerPageEncompass}>
@@ -67,12 +59,8 @@ const TravellerPage = () => {
       <div className={styles.travellerWorking}>
         <div
           className={styles.top}
-          style={{ background: `linear-gradient(60deg, ${gradient})` }}
+          style={{ backgroundColor: "black"}}
         >
-          <img
-            src={require("../../assets/images/mountain.png")}
-            className={styles.decor}
-          />
         </div>
       </div>
     </div>

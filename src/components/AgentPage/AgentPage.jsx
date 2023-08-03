@@ -2,14 +2,6 @@ import styles from "./AgentPage.module.css";
 import { useState } from "react";
 
 const AgentPage = () => {
-  const [gradient, setGradient] = useState(
-    `rgb(${Math.random() * 250 + 1}, ${Math.random() * 250 + 1}, ${
-      Math.random() * 250 + 1
-    }), rgb(${Math.random() * 250 + 1}, ${Math.random() * 250 + 1}, ${
-      Math.random() * 250 + 1
-    })`
-  );
-
   return (
     <div className={styles.agentPageEncompass}>
       <div className={styles.agentNav}>
@@ -66,13 +58,8 @@ const AgentPage = () => {
       <div className={styles.agentWorking}>
         <div
           className={styles.top}
-          style={{ background: `linear-gradient(60deg, ${gradient})` }}
-        >
-          <img
-            src={require("../../assets/images/mountain.png")}
-            className={styles.decor}
-          />
-        </div>
+          style={{backgroundColor: "black"}}
+        ></div>
       </div>
     </div>
   );

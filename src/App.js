@@ -10,6 +10,7 @@ import { NotFound } from "./components/NotFound/NotFound";
 import { Feedback } from "./components/Feedback/Feedback";
 import { AgentPage } from "./components/AgentPage/AgentPage";
 import { TravellerPage } from "./components/TravellerPage/TravellerPage";
+import { CreateTour } from "./components/AgentPage/CreateTour";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/AgentPage" element={<AgentPage />} />
           <Route path="/TravellerPage" element={<TravellerPage />} />
+          <Route path="/CreateTour" element={<CreateTour />} />
           <Route path="*" element={<NotFound />} />
 
           {/* test */}

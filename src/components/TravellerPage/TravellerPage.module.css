@@ -56,29 +56,8 @@
 
 .top{
   width: 100%;
-  height: 8rem;
+  height: 2rem;
 
   background-size: 200% 200%;
   animation: gradient 10s infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-size: 100% 200%;
-  }
-
-  50% {
-    background-size: 250% 200%;
-  }
-
-  100% {
-    background-size: 100% 200%;
-  }
-}
-
-.decor{
-  height: 100%;
-  width: 100%;
-  mix-blend-mode: screen;
-  opacity: 0.4;
 }
