@@ -1,0 +1,85 @@
+.contactEncompass {
+  width: 100vw;
+  height: 60vh;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.details {
+  grid-column: 2 / 3;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+
+  padding: 5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  grid-column: 1 / 2;
+  height: 100%;
+  width: 100%;
+
+  background: url("../../assets/images/phone1.jpg");
+  background-size: 100% 100%;
+}
+
+.contact {
+  grid-column: 3 / 4;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(104, 104, 104);
+
+  padding: 5.5rem 1rem 1rem 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.mainText {
+  font-family: "Merriweather";
+  font-size: 2rem;
+}
+
+.subText {
+  font-family: "Commissioner";
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.textField {
+  height: 2rem;
+  width: 15rem;
+  margin-left: 2rem;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
+  background-color: transparent;
+
+  border-bottom: solid 0.1rem white;
+
+  color: white;
+}
+
+.textField:focus {
+  outline: none;
+  background-color: rgba(1, 1, 1, 0.2);
+  color: white;
+}
+
+.btn {
+  width: 3rem;
+}

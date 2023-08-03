@@ -4,6 +4,7 @@ import {Reviews} from './Reviews';
 import {Footer} from '../Footer/Footer';
 import {Feedback} from '../Feedback/Feedback';
 import { useEffect, useState } from 'react';
+import { Contact } from '../Footer/Contact';
 
 const Home = () => {
     const [scroll, setScroll] = useState(false);
@@ -25,6 +26,7 @@ const Home = () => {
             <Bold className = {styles.bold} setScroll = {setScroll}/>
             <Reviews className = {styles.reviews}/>
             <Feedback className = {styles.feedback}/>
+            <Contact className = {styles.contact}/>
             <Footer className = {styles.footer} setTop = {setTop}/>
         </div>
     );
