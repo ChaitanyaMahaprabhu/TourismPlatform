@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { context } from "../../context/SharedData";
 
-const Bold = () => {
+const Bold = (props) => {
   const sharedData = useContext(context);
 
   const [image, setImage] = useState(Math.round(Math.random() * 9 + 1));
@@ -90,6 +90,7 @@ const Bold = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "4rem" }}
+              onClick = {() => {props.setScroll(true)}}
             >
               expand_more
             </span>

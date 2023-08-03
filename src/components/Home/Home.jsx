@@ -3,11 +3,20 @@ import {Bold} from './Bold';
 import {Reviews} from './Reviews';
 import {Footer} from '../Footer/Footer';
 import {Feedback} from '../Feedback/Feedback';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+    const [scroll, setScroll] = useState(false);
+    useEffect(() => {
+        if(scroll == true){
+            window.scrollTo(0, 780);
+            setScroll(false);
+        }
+    }, [scroll]);
+
     return(
         <div className = {styles.home}>
-            <Bold className = {styles.bold}/>
+            <Bold className = {styles.bold} setScroll = {setScroll}/>
             <Reviews className = {styles.reviews}/>
             <Feedback className = {styles.feedback}/>
             <Footer className = {styles.footer}/>
