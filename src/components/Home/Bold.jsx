@@ -80,9 +80,9 @@ const Bold = (props) => {
             </h1>
             <h1 className={styles.normalText}>Just a few clicks away.</h1>
             <div style={{ display: "flex" }}>
-              <h3 className={styles.counter}>+{users} Users</h3>
-              <h3 className={styles.counter}>+{trips} Trips</h3>
-              <h3 className={styles.counter}>+{reviews} Reviews</h3>
+              <h3 className={styles.counter} style = {{backgroundColor: "white", color: "black"}}>+{users} Users 😁</h3>
+              <h3 className={styles.counter} style = {{backgroundColor: "white", color: "black"}}>+{trips} Trips 🌏</h3>
+              <h3 className={styles.counter} style = {{backgroundColor: "white", color: "black"}}>+{reviews} Reviews ⭐</h3>
             </div>
           </div>
 
