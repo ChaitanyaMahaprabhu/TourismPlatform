@@ -8,7 +8,7 @@
 }
 
 .title {
-  background-color: black;
+  background-color: rgb(246, 184, 25);
   padding: 3rem;
 }
 
@@ -21,7 +21,7 @@
 .heading {
   font-family: "Merriweather";
   font-size: 4rem;
-  color: goldenrod;
+  color: black;
 }
 
 .subheading {
@@ -54,6 +54,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  color: black;
 }
 
 .send:hover {

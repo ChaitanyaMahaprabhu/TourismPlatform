@@ -102,7 +102,7 @@ const Contact = () => {
         </div>
 
         <button className={styles.btn} onClick={clickHandler}>
-          📩
+          📧
         </button>
       </div>
     </div>

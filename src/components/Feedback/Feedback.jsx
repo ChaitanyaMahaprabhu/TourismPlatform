@@ -36,7 +36,19 @@ const Feedback = () => {
 
       <div className={styles.form}>
         <div className={styles.stars}>
-          <h1 className={styles.star}>⭐</h1>
+          <h1
+            className={styles.star}
+            onClick={() => {
+              setStars((prev) => ({
+                2: false,
+                3: false,
+                4: false,
+                5: false,
+              }));
+            }}
+          >
+            ⭐
+          </h1>
           <h1
             className={styles.star}
             onClick={() => {

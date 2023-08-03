@@ -1,6 +1,6 @@
 .contactEncompass {
   width: 100vw;
-  height: 60vh;
+  height: 80vh;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -34,7 +34,7 @@
   width: 100%;
   background-color: rgb(104, 104, 104);
 
-  padding: 5.5rem 1rem 1rem 4rem;
+  padding: 5rem;
 
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@
 
 .textField {
   height: 2rem;
-  width: 15rem;
+  width: 12rem;
   margin-left: 2rem;
 
   border-top: none;
@@ -81,5 +81,32 @@
 }
 
 .btn {
-  width: 3rem;
+  width: 6rem;
+  border-radius: 1rem;
+}
+
+@media screen and (width <= 1353px){
+  .contactEncompass{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .details{
+    grid-column: 1 / 2;
+  }
+
+  .contact{
+    grid-column: 2 / 3;
+  }
+
+  .heading{
+    background: none;
+  }
+
+  .textField{
+    width: 22rem;
+  }
+
+  .btn{
+    margin-top: 2rem;
+  }
 }
