@@ -111,3 +111,13 @@ a {
 
   margin-right: 2rem;
 }
+
+.home {
+  animation: hover 2s infinite;
+}
+
+@keyframes hover {
+  50% {
+    transform: translateY(-1.5rem);
+  }
+}
