@@ -1,5 +1,6 @@
 import styles from "./AgentPage.module.css";
 import { useState } from "react";
+import { CreateTour } from "./CreateTour";
 
 const AgentPage = () => {
   return (
@@ -56,10 +57,11 @@ const AgentPage = () => {
       </div>
 
       <div className={styles.agentWorking}>
-        <div
-          className={styles.top}
-          style={{backgroundColor: "black"}}
-        ></div>
+        <div className={styles.top} style={{ backgroundColor: "black"}}></div>
+
+        <div className={styles.tab}>
+          <CreateTour />
+        </div>
       </div>
     </div>
   );

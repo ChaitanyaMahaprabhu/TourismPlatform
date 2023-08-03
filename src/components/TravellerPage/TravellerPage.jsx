@@ -62,6 +62,9 @@ const TravellerPage = () => {
           style={{ backgroundColor: "black"}}
         >
         </div>
+
+        <div className={styles.tab}>
+        </div>
       </div>
     </div>
   );
