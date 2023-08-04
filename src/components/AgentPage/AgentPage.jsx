@@ -2,20 +2,21 @@ import styles from "./AgentPage.module.css";
 import { useEffect, useState } from "react";
 import { CreateTour } from "./CreateTour";
 import { AYS } from "../AreYouSure/AYS";
+import { ToastContainer, toast } from "react-toastify";
 
 const AgentPage = () => {
   const [view, setView] = useState(false);
   const [out, setOut] = useState(false);
 
   useEffect(() => {
-    if(out === true){
-      window.location = '/';
+    if (out === true) {
+      window.location = "/";
     }
   }, [out]);
 
   return (
     <div className={styles.agentPageEncompass}>
-      {view && <AYS message = "Log Out?" setCommand = {setOut} setView = {setView}/>}
+      {view && <AYS message="Log Out?" setCommand={setOut} setView={setView} />}
       <div className={styles.agentNav}>
         <div className={styles.mainOptions}>
           <h4 className={styles.options}>
@@ -51,7 +52,9 @@ const AgentPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
-              onClick = {() => {setView(true)}}
+              onClick={() => {
+                setView(true);
+              }}
             >
               logout
             </span>
@@ -69,7 +72,7 @@ const AgentPage = () => {
       </div>
 
       <div className={styles.agentWorking}>
-        <div className={styles.top} style={{ backgroundColor: "black"}}></div>
+        <div className={styles.top} style={{ backgroundColor: "black" }}></div>
 
         <div className={styles.tab}>
           <CreateTour />
