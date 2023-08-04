@@ -51,6 +51,7 @@ const AgentPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
+              onClick = {() => {setView(true)}}
             >
               logout
             </span>
