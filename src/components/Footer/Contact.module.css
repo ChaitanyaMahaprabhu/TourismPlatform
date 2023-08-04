@@ -1,6 +1,6 @@
 .contactEncompass {
   width: 100vw;
-  height: 80vh;
+  height: 90vh;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,8 +24,12 @@
   height: 100%;
   width: 100%;
 
-  background: url("../../assets/images/phone1.jpg");
+  background-color: black;
   background-size: 100% 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact {
@@ -34,11 +38,11 @@
   width: 100%;
   background-color: rgb(104, 104, 104);
 
-  padding: 5rem;
-
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  justify-content: center;
+
+  padding-left: 6rem;
 }
 
 .mainText {
@@ -85,28 +89,28 @@
   border-radius: 1rem;
 }
 
-@media screen and (width <= 1353px){
-  .contactEncompass{
+@media screen and (width <= 1353px) {
+  .contactEncompass {
     grid-template-columns: 1fr 1fr;
   }
 
-  .details{
+  .details {
     grid-column: 1 / 2;
   }
 
-  .contact{
+  .contact {
     grid-column: 2 / 3;
   }
 
-  .heading{
+  .heading {
     background: none;
   }
 
-  .textField{
+  .textField {
     width: 22rem;
   }
 
-  .btn{
+  .btn {
     margin-top: 2rem;
   }
 }

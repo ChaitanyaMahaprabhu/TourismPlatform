@@ -1,10 +1,21 @@
 import styles from "./AgentPage.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CreateTour } from "./CreateTour";
+import { AYS } from "../AreYouSure/AYS";
 
 const AgentPage = () => {
+  const [view, setView] = useState(false);
+  const [out, setOut] = useState(false);
+
+  useEffect(() => {
+    if(out === true){
+      window.location = '/';
+    }
+  }, [out]);
+
   return (
     <div className={styles.agentPageEncompass}>
+      {view && <AYS message = "Log Out?" setCommand = {setOut} setView = {setView}/>}
       <div className={styles.agentNav}>
         <div className={styles.mainOptions}>
           <h4 className={styles.options}>

@@ -1,4 +1,5 @@
 import styles from "./CreateTour.module.css";
+import { Link } from "react-router-dom";
 
 const CreateTour = () => {
   return (
@@ -24,7 +25,7 @@ const CreateTour = () => {
         ></textarea>
 
         <div className={styles.money}>
-          <input type="number" className={styles.cost}></input>
+          <input type="number" className={styles.cost} style = {{color: "white", fontSize: "2rem"}}></input>
           <h1 className={styles.dollar}>💰</h1>
         </div>
       </div>

@@ -11,6 +11,7 @@ import { Feedback } from "./components/Feedback/Feedback";
 import { AgentPage } from "./components/AgentPage/AgentPage";
 import { TravellerPage } from "./components/TravellerPage/TravellerPage";
 import { CreateTour } from "./components/AgentPage/CreateTour";
+import { AYS } from "./components/AreYouSure/AYS";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<Feedback />} />
+          <Route path="/test" element={<AYS />} />
         </Routes>
       </SharedData>
     </>

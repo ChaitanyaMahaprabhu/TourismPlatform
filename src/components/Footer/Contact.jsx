@@ -26,7 +26,9 @@ const Contact = () => {
 
   return (
     <div className={styles.contactEncompass}>
-      <div className={styles.heading}></div>
+      <div className={styles.heading}>
+        <span class="material-symbols-outlined" style = {{color: "white", fontSize: "20rem"}}>connect_without_contact</span>
+      </div>
 
       <div className={styles.details}>
         <h1 className={styles.mainText}>Contact.</h1>
@@ -72,7 +74,7 @@ const Contact = () => {
             className={styles.textField}
             name="name"
             onChange={changeHandler}
-            value = {details.name}
+            value={details.name}
           ></input>
         </div>
 
@@ -85,7 +87,7 @@ const Contact = () => {
             className={styles.textField}
             name="email"
             onChange={changeHandler}
-            value = {details.email}
+            value={details.email}
           ></input>
         </div>
 
@@ -97,7 +99,7 @@ const Contact = () => {
             className={styles.textField}
             name="message"
             onChange={changeHandler}
-            value = {details.message}
+            value={details.message}
           ></textarea>
         </div>
 
