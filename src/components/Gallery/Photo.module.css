@@ -1,0 +1,24 @@
+.photoEncompass{
+    height: 50vw;
+    width: 50vw;
+    background-color: white;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.backdrop{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(1, 1, 1, 0.5);
+    position: relative;
+    bottom: 100%;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+}
+
+.backdrop:hover{
+    background-color: rgba(1, 1, 1, 0);
+}

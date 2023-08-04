@@ -50,7 +50,7 @@ const Bold = (props) => {
             <h5 className={styles.logo}>Make My Trip.</h5>
           </h5>
           <div className={styles.options}>
-            <h5 className={styles.logreg} style={{ marginRight: "1rem" }}>
+            <h5 className={styles.logreg}>
               <Link to="/Login" style={{ color: "white" }}>
                 <span
                   className="material-symbols-outlined"
@@ -70,6 +70,11 @@ const Bold = (props) => {
                 </span>
               </Link>
             </h5>
+            <h5 className={styles.logreg} style = {{textAlign: "center", paddingTop: "0.5rem"}}>
+              <Link to="/Gallery" style={{ color: "white"}}>
+                <span class="material-symbols-outlined">photo_library</span>
+              </Link>
+            </h5>
           </div>
         </div>
 
@@ -80,9 +85,24 @@ const Bold = (props) => {
             </h1>
             <h1 className={styles.normalText}>Just a few clicks away.</h1>
             <div style={{ display: "flex" }}>
-              <h3 className={styles.counter} style = {{backgroundColor: "white", color: "black"}}>+{users} Users 😁</h3>
-              <h3 className={styles.counter} style = {{backgroundColor: "white", color: "black"}}>+{trips} Trips 🌏</h3>
-              <h3 className={styles.counter} style = {{backgroundColor: "white", color: "black"}}>+{reviews} Reviews ⭐</h3>
+              <h3
+                className={styles.counter}
+                style={{ backgroundColor: "white", color: "black" }}
+              >
+                +{users} Users 😁
+              </h3>
+              <h3
+                className={styles.counter}
+                style={{ backgroundColor: "white", color: "black" }}
+              >
+                +{trips} Trips 🌏
+              </h3>
+              <h3
+                className={styles.counter}
+                style={{ backgroundColor: "white", color: "black" }}
+              >
+                +{reviews} Reviews ⭐
+              </h3>
             </div>
           </div>
 
@@ -90,7 +110,9 @@ const Bold = (props) => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "4rem" }}
-              onClick = {() => {props.setScroll(true)}}
+              onClick={() => {
+                props.setScroll(true);
+              }}
             >
               expand_more
             </span>

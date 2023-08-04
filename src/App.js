@@ -11,11 +11,8 @@ import { Feedback } from "./components/Feedback/Feedback";
 import { AgentPage } from "./components/AgentPage/AgentPage";
 import { TravellerPage } from "./components/TravellerPage/TravellerPage";
 import { CreateTour } from "./components/AgentPage/CreateTour";
-import { AYS } from "./components/AreYouSure/AYS";
-import { TourCard } from "./components/TourComponents/TourCard";
-import { ViewTours } from "./components/AgentPage/ViewTours";
-import { TourPage } from "./components/TourComponents/TourPage";
-import { GalleryTitle } from "./components/Gallery/GalleryTitle";
+import {Gallery} from "./components/Gallery/Gallery";
+import { Photo } from "./components/Gallery/Photo";
 
 function App() {
   return (
@@ -33,10 +30,11 @@ function App() {
           <Route path="/AgentPage" element={<AgentPage />} />
           <Route path="/TravellerPage" element={<TravellerPage />} />
           <Route path="/CreateTour" element={<CreateTour />} />
+          <Route path="/Gallery" element={<Gallery />} />
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<GalleryTitle/>} />
+          <Route path="/test" element={<Photo/>} />
         </Routes>
       </SharedData>
     </>
