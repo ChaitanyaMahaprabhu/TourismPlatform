@@ -13,6 +13,7 @@ const CreateTour = () => {
   });
 
   const clickHandler = (e) => {
+    if(!Object.values(data).includes("")){
     setClicked(true);
     console.log(data);
 
@@ -28,6 +29,11 @@ const CreateTour = () => {
         image: "",
       });
     }, 1000);
+  }
+
+  else{
+    alert("Fill in all the fields.");
+  }
   };
 
   const changeHandler = (e) => {
