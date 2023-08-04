@@ -1,7 +1,10 @@
 import styles from "./CreateTour.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const CreateTour = () => {
+  const [clicked, setClicked] = useState(false);
+  
   return (
     <div className={styles.createTourEncompass}>
       <div className={styles.titleInput}>
@@ -14,7 +17,7 @@ const CreateTour = () => {
       </div>
 
       <div className={styles.imageInput}>
-        <input type = "file" accept = "images/*"></input>
+        <input type="file" accept="images/*"></input>
       </div>
 
       <div className={styles.inputSection}>
@@ -25,13 +28,19 @@ const CreateTour = () => {
         ></textarea>
 
         <div className={styles.money}>
-          <input type="number" className={styles.cost} style = {{color: "white", fontSize: "2rem"}}></input>
+          <input
+            type="number"
+            className={styles.cost}
+            style={{ color: "green", fontSize: "2rem" }}
+          ></input>
           <h1 className={styles.dollar}>💰</h1>
         </div>
       </div>
 
       <div className={styles.buttons}>
-        <button className={styles.submit}>Submit</button>
+        <button className={styles.submit} onClick={() => {setClicked(true)}} style = {{borderRadius: `${clicked && "5rem"}`, height: `${clicked && "5rem"}`, width: `${clicked && "5rem"}`, backgroundColor: `${clicked && "green"}`, fontSize: `${clicked && "2rem"}`}}>
+          {clicked ? "✔" : "Submit"}
+        </button>
       </div>
     </div>
   );
