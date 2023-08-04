@@ -1,0 +1,35 @@
+.galleryTitleEncompass {
+  width: 100vw;
+  height: 60vh;
+  background: url("../../assets/images//camera.jpg");
+  background-size: cover;
+  background-position: 0 40%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: scroll 10s infinite;
+}
+
+.heading {
+  font-family: "Merriweather";
+  font-size: 10rem;
+  color: white;
+  mix-blend-mode: difference;
+  text-shadow: 1px 1px 20px white;
+}
+
+@keyframes scroll {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 40% 80%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}

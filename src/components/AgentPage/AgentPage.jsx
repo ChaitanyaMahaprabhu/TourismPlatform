@@ -2,17 +2,28 @@ import styles from "./AgentPage.module.css";
 import { useEffect, useState } from "react";
 import { CreateTour } from "./CreateTour";
 import { AYS } from "../AreYouSure/AYS";
+import { ViewTours } from "./ViewTours";
 import { ToastContainer, toast } from "react-toastify";
+import { Contact } from "../Footer/Contact";
+import { Footer } from "../Footer/Footer";
 
 const AgentPage = () => {
   const [view, setView] = useState(false);
   const [out, setOut] = useState(false);
+  const [top, setTop] = useState(false);
 
   useEffect(() => {
     if (out === true) {
       window.location = "/";
     }
   }, [out]);
+
+  useEffect(() => {
+    if (top === true) {
+      window.scrollTo(0, 0);
+      setTop(false);
+    }
+  }, [top]);
 
   return (
     <div className={styles.agentPageEncompass}>
@@ -75,7 +86,9 @@ const AgentPage = () => {
         <div className={styles.top} style={{ backgroundColor: "black" }}></div>
 
         <div className={styles.tab}>
-          <CreateTour />
+          <ViewTours />
+          <Contact />
+          <Footer setTop={setTop} />
         </div>
       </div>
     </div>

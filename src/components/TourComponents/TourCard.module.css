@@ -7,6 +7,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     overflow: clip;
+    
+    box-shadow: 1px 1px 20px black;
 }
 
 .imageSection{
@@ -19,6 +21,8 @@
     grid-column: 2 / 3;
     border-radius: 0rem 2rem 2rem 0rem;
     padding: 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .image{

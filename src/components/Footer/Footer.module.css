@@ -1,6 +1,6 @@
 .footerEncompass {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: #d9a7c7; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -105,11 +105,12 @@ a {
 }
 
 .home{
-  position: absolute;
+  position: relative;
   bottom: 0;
   right: 0;
 
   margin-right: 2rem;
+  margin-top: 2rem;
 }
 
 .home {
