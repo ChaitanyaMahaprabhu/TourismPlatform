@@ -1,0 +1,37 @@
+.tourCardEncompass{
+    height: 50vh;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: clip;
+}
+
+.imageSection{
+    grid-column: 1 / 2;
+    border-radius: 2rem 0rem 0rem 2rem;
+    overflow: clip;
+}
+
+.detailsSection{
+    grid-column: 2 / 3;
+    border-radius: 0rem 2rem 2rem 0rem;
+    padding: 2rem;
+}
+
+.image{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem 0rem 0rem 2rem;
+}
+
+.titleText{
+    font-family: 'Merriweather';
+}
+
+.secondaryText{
+    font-family: 'Commissioner';
+    margin-top: 1rem;
+}

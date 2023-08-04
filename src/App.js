@@ -12,6 +12,8 @@ import { AgentPage } from "./components/AgentPage/AgentPage";
 import { TravellerPage } from "./components/TravellerPage/TravellerPage";
 import { CreateTour } from "./components/AgentPage/CreateTour";
 import { AYS } from "./components/AreYouSure/AYS";
+import { TourCard } from "./components/TourComponents/TourCard";
+import { ViewTours } from "./components/AgentPage/ViewTours";
 
 function App() {
   return (
@@ -32,7 +34,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<AYS />} />
+          <Route path="/test" element={<ViewTours />} />
         </Routes>
       </SharedData>
     </>
