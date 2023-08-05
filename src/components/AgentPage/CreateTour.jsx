@@ -53,6 +53,9 @@ const CreateTour = () => {
 
   return (
     <div className={styles.createTourEncompass}>
+      <div className = {styles.what}>
+        <h1>New Tour Plan</h1>
+      </div>
       <div className={styles.titleInput}>
         <input
           type="text"

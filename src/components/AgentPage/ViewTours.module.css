@@ -9,3 +9,15 @@
 
     background-color:papayawhip;
 }
+
+.what{
+    background-color: papayawhip;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+
+    font-family: "Merriweather";
+
+    margin-bottom: 2rem;
+}

@@ -1,7 +1,7 @@
 .tourCardEncompass{
     height: 50vh;
     width: 100%;
-    border-radius: 2rem;
+    border-radius: 1rem;
     background-color: white;
 
     display: grid;
@@ -13,7 +13,7 @@
 
 .imageSection{
     grid-column: 1 / 2;
-    border-radius: 2rem 0rem 0rem 2rem;
+    border-radius: 1rem 0rem 0rem 1rem;
     overflow: clip;
 }
 
@@ -28,7 +28,7 @@
 .image{
     height: 100%;
     width: 100%;
-    border-radius: 2rem 0rem 0rem 2rem;
+    border-radius: 1rem 0rem 0rem 1rem;
 }
 
 .titleText{
