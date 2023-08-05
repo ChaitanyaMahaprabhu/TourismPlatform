@@ -27,7 +27,12 @@ const Contact = () => {
   return (
     <div className={styles.contactEncompass}>
       <div className={styles.heading}>
-        <span class="material-symbols-outlined" style = {{color: "white", fontSize: "20rem"}}>connect_without_contact</span>
+        <span
+          class="material-symbols-outlined"
+          style={{ color: "white", fontSize: "20rem" }}
+        >
+          connect_without_contact
+        </span>
       </div>
 
       <div className={styles.details}>
@@ -39,7 +44,9 @@ const Contact = () => {
           >
             mail
           </span>{" "}
-          chaitanya.kanini@gmail.com
+          <a href="mailto:chaitanya.kanini@gmail.com">
+            chaitanya.kanini@gmail.com
+          </a>
         </p>
         <p className={styles.subText}>
           <span
@@ -57,7 +64,7 @@ const Contact = () => {
           >
             call
           </span>{" "}
-          6360010830
+          <a href="tel:6360010830">6360010830</a>
         </p>
       </div>
 

@@ -1,0 +1,53 @@
+.helplineEncompass {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(60deg, brown, wheat, brown);
+  background-size: 200% 200%;
+  animation: move 8s infinite;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+@keyframes move {
+  0% {
+    background-position: 10% 50%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 10% 50%;
+  }
+}
+
+.info{
+    height: 100%;
+    width: 100%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+
+    background-color:papayawhip;
+    border-radius: 1rem;
+
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 1px 1px 10px black;
+}
+
+.heading{
+    font-family: "Merriweather";
+    margin-bottom: 2rem;
+}
+
+.subheading{
+    font-family: "Commissioner";
+    margin-bottom: 1rem;
+}

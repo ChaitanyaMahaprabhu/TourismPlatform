@@ -86,6 +86,7 @@ const AgentPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
+              onClick = {() => {window.location = '/helpline'}}
             >
               contact_support
             </span>

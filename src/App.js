@@ -14,6 +14,7 @@ import { CreateTour } from "./components/AgentPage/CreateTour";
 import {Gallery} from "./components/Gallery/Gallery";
 import { Photo } from "./components/Gallery/Photo";
 import { TourDetails } from "./components/TourDetailsPage/TourDetails";
+import { Helpline } from "./components/Helpline/Helpline";
 
 function App() {
   return (
@@ -32,10 +33,11 @@ function App() {
           <Route path="/TravellerPage" element={<TravellerPage />} />
           <Route path="/CreateTour" element={<CreateTour />} />
           <Route path="/Gallery" element={<Gallery />} />
+          <Route path="/Helpline" element={<Helpline />} />
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<TourDetails/>} />
+          <Route path="/test" element={<Helpline/>} />
         </Routes>
       </SharedData>
     </>
