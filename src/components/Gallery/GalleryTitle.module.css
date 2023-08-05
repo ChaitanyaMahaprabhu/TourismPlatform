@@ -26,10 +26,19 @@
   }
 
   50% {
-    background-position: 40% 80%;
+    background-position: 40% 50%;
   }
 
   100% {
     background-position: 0% 0%;
   }
+}
+
+.home{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.home:hover{
+  transform: translateX(1rem);
 }
