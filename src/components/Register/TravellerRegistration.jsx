@@ -62,17 +62,16 @@ const TravellerRegistration = () => {
 
   const clickHandler = (e) => {
     e.preventDefault();
-    console.log(travellerDetails);
     if (Object.values(travellerDetails).includes("")) {
-      toast("Enter all the details.");
+      toast("Enter all the details 😐");
     } else if (!allTrue) {
-      toast("Password should follow the constraints.");
+      toast("Password should follow the constraints 🔑");
     } else if (pattern.test(travellerDetails["Email"]) === false) {
-      toast("Check your email.");
+      toast("Check your email 👀");
     } else {
       travellerDetails.Password = pass;
       console.log(travellerDetails);
-      toast("Registration Successful!");
+      toast("Registration Successful! 😄");
     }
   };
 

@@ -65,15 +65,15 @@ const AgentRegistration = () => {
     e.preventDefault();
     console.log(agentDetails);
     if (Object.values(agentDetails).includes("")) {
-      toast("Enter all the details.");
+      toast("Enter all the details 😐");
     } else if (!allTrue) {
-      toast("Password should follow the constraints.");
+      toast("Password should follow the constraints 🔑");
     } else if (pattern.test(agentDetails["Email"]) === false) {
-      toast("Check your email.");
+      toast("Check your email 👀");
     } else {
       agentDetails.Password = pass;
       console.log(agentDetails);
-      toast("Registration Successful! Wait for activation from admin's side.");
+      toast("Registration Successful! Wait for activation from admin's side. 😄");
     }
   };
 

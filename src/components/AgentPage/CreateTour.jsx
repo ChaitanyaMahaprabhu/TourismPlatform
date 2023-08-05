@@ -2,6 +2,7 @@ import styles from "./CreateTour.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateTour = () => {
   const [clicked, setClicked] = useState(false);
@@ -18,7 +19,7 @@ const CreateTour = () => {
     console.log(data);
 
     setTimeout(() => {
-      alert(`Tour: ${data.title} - created!`);
+      toast(`Tour: ${data.title} - created! ✨`);
 
       setClicked(false);
 
@@ -32,7 +33,7 @@ const CreateTour = () => {
   }
 
   else{
-    alert("Fill in all the fields.");
+    toast("Fill in all the fields.");
   }
   };
 
@@ -110,6 +111,7 @@ const CreateTour = () => {
           {clicked ? "👍" : "Submit"}
         </button>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
