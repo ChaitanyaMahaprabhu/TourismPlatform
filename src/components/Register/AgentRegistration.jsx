@@ -1,8 +1,12 @@
 import styles from "./AgentRegistration.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AgentRegistration = () => {
+  const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
   const [gradient, setGradient] = useState(
     `rgb(${Math.random() * 250 + 1}, ${Math.random() * 250 + 1}, ${
       Math.random() * 250 + 1
@@ -32,14 +36,45 @@ const AgentRegistration = () => {
   const n_pattern = /[0-9]+/;
   const s_pattern = /[#$%^&@!()_=\-+]+/;
 
-  const changeHandler = (e) => {
+  const passChangeHandler = (e) => {
     setPass(e.target.value);
-    console.log(e.target.value);
 
     setUppercase(u_pattern.test(e.target.value) ? true : false);
     setLowercase(l_pattern.test(e.target.value) ? true : false);
     setNumber(n_pattern.test(e.target.value) ? true : false);
     setSpecial(s_pattern.test(e.target.value) ? true : false);
+  };
+
+  const [agentDetails, setAgentDetails] = useState({
+    UserName: "",
+    AgentName: "",
+    Organization: "",
+    City: "",
+    IsApproved: "false",
+    Email: "",
+  });
+
+  const changeHandler = (e) => {
+    setAgentDetails((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const clickHandler = (e) => {
+    e.preventDefault();
+    console.log(agentDetails);
+    if (Object.values(agentDetails).includes("")) {
+      toast("Enter all the details.");
+    } else if (!allTrue) {
+      toast("Password should follow the constraints.");
+    } else if (pattern.test(agentDetails["Email"]) === false) {
+      toast("Check your email.");
+    } else {
+      agentDetails.Password = pass;
+      console.log(agentDetails);
+      toast("Registration Successful! Wait for activation from admin's side.");
+    }
   };
 
   return (
@@ -85,8 +120,9 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="name"
-                    name="name"
+                    name="AgentName"
                     required
+                    onChange={changeHandler}
                   />
                 </div>
                 <div class="mb-3">
@@ -95,7 +131,8 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="organization"
-                    name="organization"
+                    name="Organization"
+                    onChange={changeHandler}
                     required
                   />
                 </div>
@@ -115,7 +152,8 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="email"
-                    name="email"
+                    name="Email"
+                    onChange={changeHandler}
                     required
                   />
                 </div>
@@ -125,7 +163,8 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="city"
-                    name="city"
+                    name="City"
+                    onChange={changeHandler}
                     required
                   />
                 </div>
@@ -145,7 +184,8 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="username"
-                    name="username"
+                    name="UserName"
+                    onChange={changeHandler}
                     required
                   />
                 </div>
@@ -155,8 +195,8 @@ const AgentRegistration = () => {
                     type="password"
                     class="form-control"
                     id="password"
-                    name="password"
-                    onChange={changeHandler}
+                    name="Password"
+                    onChange={passChangeHandler}
                     style={{
                       color: `${allTrue ? "green" : "red"}`,
                       border: `2px solid ${allTrue ? "green" : "red"}`,
@@ -193,9 +233,10 @@ const AgentRegistration = () => {
               </div>
 
               <button
-                type="submit"
+                type="button"
                 class="btn btn-dark"
                 style={{ marginTop: "1rem", width: "20rem" }}
+                onClick={clickHandler}
               >
                 Submit
               </button>
@@ -224,6 +265,8 @@ const AgentRegistration = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

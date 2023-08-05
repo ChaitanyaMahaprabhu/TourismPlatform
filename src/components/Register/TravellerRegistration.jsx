@@ -1,8 +1,12 @@
 import styles from "./TravellerRegistration.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TravellerRegistration = () => {
+  const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
   const [gradient, setGradient] = useState(
     `rgb(${Math.random() * 250 + 1}, ${Math.random() * 250 + 1}, ${
       Math.random() * 250 + 1
@@ -32,7 +36,7 @@ const TravellerRegistration = () => {
   const n_pattern = /[0-9]+/;
   const s_pattern = /[#$%^&@!()_=\-+]+/;
 
-  const changeHandler = (e) => {
+  const passChangeHandler = (e) => {
     setPass(e.target.value);
     console.log(e.target.value);
 
@@ -40,6 +44,36 @@ const TravellerRegistration = () => {
     setLowercase(l_pattern.test(e.target.value) ? true : false);
     setNumber(n_pattern.test(e.target.value) ? true : false);
     setSpecial(s_pattern.test(e.target.value) ? true : false);
+  };
+
+  const [travellerDetails, setTravellerDetails] = useState({
+    UserName: "",
+    TravelerName: "",
+    City: "",
+    Email: ""
+  });
+
+  const changeHandler = (e) => {
+    setTravellerDetails((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const clickHandler = (e) => {
+    e.preventDefault();
+    console.log(travellerDetails);
+    if (Object.values(travellerDetails).includes("")) {
+      toast("Enter all the details.");
+    } else if (!allTrue) {
+      toast("Password should follow the constraints.");
+    } else if (pattern.test(travellerDetails["Email"]) === false) {
+      toast("Check your email.");
+    } else {
+      travellerDetails.Password = pass;
+      console.log(travellerDetails);
+      toast("Registration Successful!");
+    }
   };
 
   return (
@@ -79,24 +113,15 @@ const TravellerRegistration = () => {
                   width: "30rem",
                 }}
               >
-                <div>
+                <div style = {{width: "100%", marginBottom: "1rem"}}>
                   <label for="name">Name</label>
                   <input
                     type="text"
                     class="form-control"
                     id="name"
-                    name="name"
+                    name="TravelerName"
                     required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="age">Age</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="age"
-                    name="age"
-                    required
+                    onChange = {changeHandler}
                   />
                 </div>
               </div>
@@ -115,7 +140,8 @@ const TravellerRegistration = () => {
                     type="text"
                     class="form-control"
                     id="email"
-                    name="email"
+                    name="Email"
+                    onChange = {changeHandler}
                     required
                   />
                 </div>
@@ -125,7 +151,8 @@ const TravellerRegistration = () => {
                     type="text"
                     class="form-control"
                     id="city"
-                    name="city"
+                    name="City"
+                    onChange = {changeHandler}
                     required
                   />
                 </div>
@@ -145,7 +172,8 @@ const TravellerRegistration = () => {
                     type="text"
                     class="form-control"
                     id="username"
-                    name="username"
+                    name="UserName"
+                    onChange = {changeHandler}
                     required
                   />
                 </div>
@@ -155,8 +183,8 @@ const TravellerRegistration = () => {
                     type="password"
                     class="form-control"
                     id="password"
-                    name="password"
-                    onChange={changeHandler}
+                    name="Password"
+                    onChange={passChangeHandler}
                     style={{
                       color: `${allTrue ? "green" : "red"}`,
                       border: `2px solid ${allTrue ? "green" : "red"}`,
@@ -193,9 +221,10 @@ const TravellerRegistration = () => {
               </div>
 
               <button
-                type="submit"
+                type="button"
                 class="btn btn-dark"
                 style={{ marginTop: "1rem", width: "20rem" }}
+                onClick = {clickHandler}
               >
                 Submit
               </button>
@@ -224,6 +253,7 @@ const TravellerRegistration = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
