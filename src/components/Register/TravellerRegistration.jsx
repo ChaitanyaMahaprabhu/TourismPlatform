@@ -65,7 +65,7 @@ const TravellerRegistration = () => {
               - Hello Traveller -
             </h1>
             <p className={styles.subheading}>
-              Please enter the details below to get started
+              Please enter the details below to get registered
             </p>
           </div>
 

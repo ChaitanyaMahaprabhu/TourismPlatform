@@ -11,6 +11,11 @@ const AgentPage = () => {
   const [view, setView] = useState(false);
   const [out, setOut] = useState(false);
   const [top, setTop] = useState(false);
+  const [active, setActive] = useState({
+    createTours: true,
+    viewTours : false
+  });
+  const [render, setRender] = useState();
 
   useEffect(() => {
     if (out === true) {
@@ -25,6 +30,13 @@ const AgentPage = () => {
     }
   }, [top]);
 
+  useEffect(() => {
+    if(active.createTours)
+      setRender(<CreateTour/>);
+    else if(active.viewTours)
+      setRender(<ViewTours/>);
+  }, [active]);
+
   return (
     <div className={styles.agentPageEncompass}>
       {view && <AYS message="Log Out?" setCommand={setOut} setView={setView} />}
@@ -34,6 +46,10 @@ const AgentPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
+              onClick = {() => {setActive(prev => ({
+                createTours: true,
+                viewTours : false
+              }))}}
             >
               edit
             </span>
@@ -43,15 +59,10 @@ const AgentPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
-            >
-              edit_note
-            </span>
-          </h4>
-
-          <h4 className={styles.options}>
-            <span
-              class="material-symbols-outlined"
-              style={{ fontSize: "2rem" }}
+              onClick = {() => {setActive(prev => ({
+                createTours: false,
+                viewTours : true
+              }))}}
             >
               search
             </span>
@@ -86,7 +97,7 @@ const AgentPage = () => {
         <div className={styles.top} style={{ backgroundColor: "black" }}></div>
 
         <div className={styles.tab}>
-          <ViewTours />
+          {render}
           <Contact />
           <Footer setTop={setTop} />
         </div>

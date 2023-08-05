@@ -13,6 +13,7 @@ import { TravellerPage } from "./components/TravellerPage/TravellerPage";
 import { CreateTour } from "./components/AgentPage/CreateTour";
 import {Gallery} from "./components/Gallery/Gallery";
 import { Photo } from "./components/Gallery/Photo";
+import { TourDetails } from "./components/TourDetailsPage/TourDetails";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<Photo/>} />
+          <Route path="/test" element={<TourDetails/>} />
         </Routes>
       </SharedData>
     </>
