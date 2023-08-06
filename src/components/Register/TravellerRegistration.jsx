@@ -1,5 +1,5 @@
 import styles from "./TravellerRegistration.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,16 +20,7 @@ const TravellerRegistration = () => {
   const [lowercase, setLowercase] = useState(false);
   const [number, setNumber] = useState(false);
   const [special, setSpecial] = useState(false);
-  let allTrue = false;
-
-  if (
-    uppercase == true &&
-    lowercase == true &&
-    number == true &&
-    special == true
-  ) {
-    allTrue = true;
-  }
+  const [allTrue, setAllTrue] = useState(false);
 
   const u_pattern = /[A-Z]+/;
   const l_pattern = /[a-z]+/;
@@ -47,18 +38,60 @@ const TravellerRegistration = () => {
   };
 
   const [travellerDetails, setTravellerDetails] = useState({
-    UserName: "",
-    TravelerName: "",
-    City: "",
-    Email: ""
+    userName: "",
+    name: "",
+    city: ""
   });
 
+  const [userDetails, setUserDetails] = useState({
+    UserName: "",
+    UserEmail: "",
+    Password: "",
+    Role: "Traveller"
+  });
+
+  useEffect(() => {
+    if (
+      uppercase == true &&
+      lowercase == true &&
+      number == true &&
+      special == true
+    ) {
+      setAllTrue(true);
+      setUserDetails((prev) => ({
+        ...prev,
+        Password: pass
+      }));
+    }
+  }, [pass]);
+
   const changeHandler = (e) => {
-    setTravellerDetails((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+    if(e.target.name === "email"){
+      setUserDetails((prev) => ({
+        ...prev,
+        UserEmail: e.target.value,
+      }));
+    }
+
+      else if(e.target.name === "userName"){
+        setUserDetails((prev) => ({
+          ...prev,
+          UserName: e.target.value,
+        }));
+        
+        setTravellerDetails((prev) => ({
+          ...prev,
+          userName: e.target.value,
+        }));
+      }
+
+      else{
+        setTravellerDetails((prev) => ({
+          ...prev,
+          [e.target.name]: e.target.value,
+        }));
+      }
+    }
 
   const clickHandler = (e) => {
     e.preventDefault();
@@ -66,14 +99,45 @@ const TravellerRegistration = () => {
       toast("Enter all the details 😐");
     } else if (!allTrue) {
       toast("Password should follow the constraints 🔑");
-    } else if (pattern.test(travellerDetails["Email"]) === false) {
+    } else if (pattern.test(userDetails["UserEmail"]) === false) {
       toast("Check your email 👀");
     } else {
-      travellerDetails.Password = pass;
       console.log(travellerDetails);
+      console.log(userDetails);
+      post();
+      postUser();
       toast("Registration Successful! 😄");
     }
   };
+
+  const post = () => {
+    fetch("https://localhost:7064/api/Travellers", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(travellerDetails),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const postUser = () => {
+    fetch("https://localhost:7064/api/Users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userDetails),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
 
   return (
     <div className={styles.loginEncompass}>
@@ -112,15 +176,15 @@ const TravellerRegistration = () => {
                   width: "30rem",
                 }}
               >
-                <div style = {{width: "100%", marginBottom: "1rem"}}>
+                <div style={{ width: "100%", marginBottom: "1rem" }}>
                   <label for="name">Name</label>
                   <input
                     type="text"
                     class="form-control"
                     id="name"
-                    name="TravelerName"
+                    name="name"
                     required
-                    onChange = {changeHandler}
+                    onChange={changeHandler}
                   />
                 </div>
               </div>
@@ -139,8 +203,8 @@ const TravellerRegistration = () => {
                     type="text"
                     class="form-control"
                     id="email"
-                    name="Email"
-                    onChange = {changeHandler}
+                    name="email"
+                    onChange={changeHandler}
                     required
                   />
                 </div>
@@ -150,8 +214,8 @@ const TravellerRegistration = () => {
                     type="text"
                     class="form-control"
                     id="city"
-                    name="City"
-                    onChange = {changeHandler}
+                    name="city"
+                    onChange={changeHandler}
                     required
                   />
                 </div>
@@ -171,8 +235,8 @@ const TravellerRegistration = () => {
                     type="text"
                     class="form-control"
                     id="username"
-                    name="UserName"
-                    onChange = {changeHandler}
+                    name="userName"
+                    onChange={changeHandler}
                     required
                   />
                 </div>
@@ -182,7 +246,7 @@ const TravellerRegistration = () => {
                     type="password"
                     class="form-control"
                     id="password"
-                    name="Password"
+                    name="password"
                     onChange={passChangeHandler}
                     style={{
                       color: `${allTrue ? "green" : "red"}`,
@@ -223,7 +287,7 @@ const TravellerRegistration = () => {
                 type="button"
                 class="btn btn-dark"
                 style={{ marginTop: "1rem", width: "20rem" }}
-                onClick = {clickHandler}
+                onClick={clickHandler}
               >
                 Submit
               </button>

@@ -1,5 +1,5 @@
 import styles from "./AgentRegistration.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,16 +20,7 @@ const AgentRegistration = () => {
   const [lowercase, setLowercase] = useState(false);
   const [number, setNumber] = useState(false);
   const [special, setSpecial] = useState(false);
-  let allTrue = false;
-
-  if (
-    uppercase == true &&
-    lowercase == true &&
-    number == true &&
-    special == true
-  ) {
-    allTrue = true;
-  }
+  const [allTrue, setAllTrue] = useState(false);
 
   const u_pattern = /[A-Z]+/;
   const l_pattern = /[a-z]+/;
@@ -46,20 +37,59 @@ const AgentRegistration = () => {
   };
 
   const [agentDetails, setAgentDetails] = useState({
+    userName: "",
+    name: "",
+    organization: "",
+    city: "",
+    status: "false",
+    age: "",
+  });
+
+  const [userDetails, setUserDetails] = useState({
     UserName: "",
-    AgentName: "",
-    Organization: "",
-    City: "",
-    IsApproved: "false",
-    Email: "",
+    UserEmail: "",
+    Password: "",
+    Role: "Agent",
   });
 
   const changeHandler = (e) => {
-    setAgentDetails((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name === "email") {
+      setUserDetails((prev) => ({
+        ...prev,
+        UserEmail: e.target.value,
+      }));
+    } else if (e.target.name === "userName") {
+      setUserDetails((prev) => ({
+        ...prev,
+        UserName: e.target.value,
+      }));
+
+      setAgentDetails((prev) => ({
+        ...prev,
+        userName: e.target.value,
+      }));
+    } else {
+      setAgentDetails((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }));
+    }
   };
+
+  useEffect(() => {
+    if (
+      uppercase == true &&
+      lowercase == true &&
+      number == true &&
+      special == true
+    ) {
+      setAllTrue(true);
+      setUserDetails((prev) => ({
+        ...prev,
+        Password: pass,
+      }));
+    }
+  }, [pass]);
 
   const clickHandler = (e) => {
     e.preventDefault();
@@ -68,13 +98,48 @@ const AgentRegistration = () => {
       toast("Enter all the details 😐");
     } else if (!allTrue) {
       toast("Password should follow the constraints 🔑");
-    } else if (pattern.test(agentDetails["Email"]) === false) {
+    } else if (agentDetails["age"] < 18) {
+      toast("Agent should be of age 18 or above.");
+    } else if (pattern.test(userDetails["UserEmail"]) === false) {
       toast("Check your email 👀");
     } else {
       agentDetails.Password = pass;
       console.log(agentDetails);
-      toast("Registration Successful! Wait for activation from admin's side. 😄");
+      console.log(userDetails);
+      post();
+      postUser();
+      toast(
+        "Registration Successful! Wait for activation from admin's side. 😄"
+      );
     }
+  };
+
+  const post = () => {
+    fetch("https://localhost:7064/api/Agents", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(agentDetails),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const postUser = () => {
+    fetch("https://localhost:7064/api/Users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userDetails),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -120,18 +185,18 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="name"
-                    name="AgentName"
+                    name="name"
                     required
                     onChange={changeHandler}
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="organization">Organization</label>
+                  <label for="age">Age</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
-                    id="organization"
-                    name="Organization"
+                    id="age"
+                    name="age"
                     onChange={changeHandler}
                     required
                   />
@@ -152,7 +217,7 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="email"
-                    name="Email"
+                    name="email"
                     onChange={changeHandler}
                     required
                   />
@@ -163,11 +228,23 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="city"
-                    name="City"
+                    name="city"
                     onChange={changeHandler}
                     required
                   />
                 </div>
+              </div>
+
+              <div style={{ marginBottom: "1rem" }}>
+                <label for="organization">Organization</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="organization"
+                  name="organization"
+                  onChange={changeHandler}
+                  required
+                />
               </div>
 
               <div
@@ -184,7 +261,7 @@ const AgentRegistration = () => {
                     type="text"
                     class="form-control"
                     id="username"
-                    name="UserName"
+                    name="userName"
                     onChange={changeHandler}
                     required
                   />
