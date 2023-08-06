@@ -107,6 +107,7 @@ const TravellerRegistration = () => {
       post();
       postUser();
       toast("Registration Successful! 😄");
+      window.location = '/Login';
     }
   };
 

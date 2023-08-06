@@ -111,6 +111,8 @@ const AgentRegistration = () => {
       toast(
         "Registration Successful! Wait for activation from admin's side. 😄"
       );
+
+      window.location = '/Login';
     }
   };
 
