@@ -11,7 +11,8 @@
 }
 
 .what{
-    background-color: papayawhip;
+    background-color: black;
+    color:white;
     display: flex;
     justify-content: center;
     align-items: center;

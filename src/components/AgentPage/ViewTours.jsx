@@ -4,7 +4,7 @@ import { TourCard } from "../TourComponents/TourCard";
 const ViewTours = () => {
   return (
     <>
-      <div className={styles.what}>
+      <div className={styles.what} style = {{marginTop: "2rem"}}>
         <h1>Your Tour Plans</h1>
       </div>
       <div className={styles.viewToursEncompass}>
