@@ -1,10 +1,41 @@
 import styles from "./TravellerPage.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { AYS } from "../AreYouSure/AYS";
+import { ToastContainer, toast } from "react-toastify";
+import { Contact } from "../Footer/Contact";
+import { Footer } from "../Footer/Footer";
+import { ViewTours } from "../AgentPage/ViewTours";
 
 const TravellerPage = () => {
+  const [view, setView] = useState(false);
+  const [out, setOut] = useState(false);
+  const [top, setTop] = useState(false);
+
+  const [render, setRender] = useState();
+  const [active, setActive] = useState({
+    viewTours: false,
+  });
+
+  useEffect(() => {
+    if (top === true) {
+      window.scrollTo(0, 0);
+      setTop(false);
+    }
+  }, [top]);
+
+  useEffect(() => {
+    if (out === true) {
+      window.location = "/";
+    }
+  }, [out]);
+
+  useEffect(() => {
+    if (active.viewTours) setRender(<ViewTours />);
+  }, [active]);
 
   return (
     <div className={styles.travellerPageEncompass}>
+      {view && <AYS message="Log Out?" setCommand={setOut} setView={setView} />}
       <div className={styles.travellerNav}>
         <div className={styles.mainOptions}>
           <h4 className={styles.options}>
@@ -29,6 +60,12 @@ const TravellerPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
+              onClick={() => {
+                setActive((prev) => ({
+                  createTours: false,
+                  viewTours: true,
+                }));
+              }}
             >
               search
             </span>
@@ -40,6 +77,9 @@ const TravellerPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
+              onClick={() => {
+                setView(true);
+              }}
             >
               logout
             </span>
@@ -49,6 +89,9 @@ const TravellerPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
+              onClick={() => {
+                window.location = "/Helpline";
+              }}
             >
               contact_support
             </span>
@@ -57,13 +100,12 @@ const TravellerPage = () => {
       </div>
 
       <div className={styles.travellerWorking}>
-        <div
-          className={styles.top}
-          style={{ backgroundColor: "black"}}
-        >
-        </div>
+        <div className={styles.top} style={{ backgroundColor: "black" }}></div>
 
         <div className={styles.tab}>
+          {render}
+          <Contact />
+          <Footer setTop={setTop} />
         </div>
       </div>
     </div>

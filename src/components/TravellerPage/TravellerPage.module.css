@@ -63,3 +63,7 @@
   background-size: 200% 200%;
   animation: gradient 10s infinite;
 }
+
+.tab{
+  margin: 2rem;
+}
