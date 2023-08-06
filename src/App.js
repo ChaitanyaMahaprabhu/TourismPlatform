@@ -30,7 +30,7 @@ function App() {
           />
           <Route path="/AgentRegistration" element={<AgentRegistration />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/AgentPage" element={<AgentPage />} />
+          <Route path="/AgentPage/:agentId" element={<AgentPage />} />
           <Route path="/TravellerPage" element={<TravellerPage />} />
           <Route path="/CreateTour" element={<CreateTour />} />
           <Route path="/Gallery" element={<Gallery />} />

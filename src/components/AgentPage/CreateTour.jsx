@@ -11,7 +11,30 @@ const CreateTour = () => {
     description: "",
     cost: 0,
     image: "",
+    city: "",
+    organization: "",
+    agentId: 0
   });
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.onload = (event) => {
+      const fileData = event.target.result;
+      const byteArray = new Uint8Array(fileData);
+      const numbersArray = Array.from(byteArray);
+      const base64String = btoa(
+        String.fromCharCode.apply(null, numbersArray)
+      );
+      setData((prev) => ({
+        ...prev,
+        image: base64String,
+      }));
+    };
+
+    fileReader.readAsArrayBuffer(file);
+  };
 
   const clickHandler = (e) => {
     if(!Object.values(data).includes("")){
@@ -67,12 +90,24 @@ const CreateTour = () => {
         ></input>
       </div>
 
+      <div className={styles.titleInput}>
+        <input
+          type="text"
+          name="city"
+          placeholder="Enter Name Of City"
+          className={styles.title}
+          onChange={changeHandler}
+          value={data.city}
+          style = {{width: "22rem"}}
+        ></input>
+      </div>
+
       <div className={styles.imageInput}>
         <input
           type="file"
           accept="images/*"
           name="image"
-          onChange={changeHandler}
+          onChange={handleImageChange}
           value={data.image}
         ></input>
       </div>

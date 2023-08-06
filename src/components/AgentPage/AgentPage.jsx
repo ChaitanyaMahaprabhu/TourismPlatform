@@ -6,8 +6,11 @@ import { ViewTours } from "./ViewTours";
 import { ToastContainer, toast } from "react-toastify";
 import { Contact } from "../Footer/Contact";
 import { Footer } from "../Footer/Footer";
+import { useParams } from "react-router-dom";
 
 const AgentPage = () => {
+  const {UserName} = useParams();
+
   const [view, setView] = useState(false);
   const [out, setOut] = useState(false);
   const [top, setTop] = useState(false);

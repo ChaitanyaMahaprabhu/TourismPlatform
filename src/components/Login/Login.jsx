@@ -16,7 +16,13 @@ const Login = () => {
   );
 
   const redirect = () => {
+    if(login.Role === "Agent"){
+    window.location = `/${login.Role}Page/${login.UserName}`;
+    }
+
+    else{
     window.location = `/${login.Role}Page`;
+    }
   };
 
   const [login, setLogin] = useState({
@@ -58,7 +64,7 @@ const Login = () => {
           alert("Logged in successfully!");
           redirect();
         } else {
-          toast("Wrong credentials entered!");
+          toast("Wrong credentials entered! 😶");
         }
       })
       .catch((err) => {
