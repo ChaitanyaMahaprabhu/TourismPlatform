@@ -1,10 +1,10 @@
 import styles from "./CreateTour.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const CreateTour = () => {
+const CreateTour = (props) => {
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState({
     title: "",
@@ -12,52 +12,52 @@ const CreateTour = () => {
     cost: 0,
     image: "",
     city: "",
-    organization: "",
-    agentId: 0
+    organization: props.org,
+    agentId: props.id,
   });
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    const fileReader = new FileReader();
+    if (file) {
+      const fileReader = new FileReader();
 
-    fileReader.onload = (event) => {
-      const fileData = event.target.result;
-      const byteArray = new Uint8Array(fileData);
-      const numbersArray = Array.from(byteArray);
-      const base64String = btoa(
-        String.fromCharCode.apply(null, numbersArray)
-      );
-      setData((prev) => ({
-        ...prev,
-        image: base64String,
-      }));
-    };
+      fileReader.onload = (event) => {
+        const fileData = event.target.result;
+        const byteArray = new Uint8Array(fileData);
+        const base64String = btoa(
+          String.fromCharCode.apply(null, byteArray)
+        );
+        setData((prev) => ({
+          ...prev,
+          image: base64String,
+        }));
+      };
 
-    fileReader.readAsArrayBuffer(file);
+      fileReader.readAsArrayBuffer(file);
+    }
   };
 
   const clickHandler = (e) => {
-    if(!Object.values(data).includes("")){
-    setClicked(true);
-    console.log(data);
-
-    setTimeout(() => {
-      toast(`Tour: ${data.title} - created! ✨`);
-
-      setClicked(false);
-
-      setData({
-        title: "",
-        description: "",
-        cost: 0,
-        image: "",
-      });
-    }, 1000);
-  }
-
-  else{
-    toast("Fill in all the fields.");
-  }
+    if (Object.values(data).some((value) => value === "")) {
+      console.log(data);
+      toast("Fill in all the fields.");
+    } else {
+      post();
+      setClicked(true);
+      setTimeout(() => {
+        toast(`Tour: ${data.title} - created! ✨`);
+        setClicked(false);
+        setData({
+          title: "",
+          description: "",
+          cost: 0,
+          image: "",
+          city: "",
+          organization: props.org,
+          agentId: props.id,
+        });
+      }, 1000);
+    }
   };
 
   const changeHandler = (e) => {
@@ -74,9 +74,23 @@ const CreateTour = () => {
     }
   };
 
+  const post = () => {
+    fetch("https://localhost:7064/api/Tours", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className={styles.createTourEncompass}>
-      <div className = {styles.what}>
+      <div className={styles.what}>
         <h1>New Tour Plan</h1>
       </div>
       <div className={styles.titleInput}>
@@ -87,7 +101,7 @@ const CreateTour = () => {
           className={styles.title}
           onChange={changeHandler}
           value={data.title}
-        ></input>
+        />
       </div>
 
       <div className={styles.titleInput}>
@@ -98,8 +112,8 @@ const CreateTour = () => {
           className={styles.title}
           onChange={changeHandler}
           value={data.city}
-          style = {{width: "22rem"}}
-        ></input>
+          style={{ width: "22rem" }}
+        />
       </div>
 
       <div className={styles.imageInput}>
@@ -108,8 +122,7 @@ const CreateTour = () => {
           accept="images/*"
           name="image"
           onChange={handleImageChange}
-          value={data.image}
-        ></input>
+        />
       </div>
 
       <div className={styles.inputSection}>
@@ -129,7 +142,7 @@ const CreateTour = () => {
             name="cost"
             onChange={changeHandler}
             value={data.cost}
-          ></input>
+          />
           <h1 className={styles.dollar}>💰</h1>
         </div>
       </div>
@@ -149,7 +162,7 @@ const CreateTour = () => {
           {clicked ? "👍" : "Submit"}
         </button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

@@ -7,11 +7,19 @@ import { ToastContainer, toast } from "react-toastify";
 import { Contact } from "../Footer/Contact";
 import { Footer } from "../Footer/Footer";
 import { useParams } from "react-router-dom";
+import { context } from "../../context/SharedData";
+import { useContext } from "react";
+import { Title } from "./Title";
+
 
 const AgentPage = () => {
-  const {UserName} = useParams();
+  const {name} = useParams();
+  const sharedData = useContext(context);
+
 
   const [view, setView] = useState(false);
+  const [id, setId] = useState();
+  const [org, setOrg] = useState();
   const [out, setOut] = useState(false);
   const [top, setTop] = useState(false);
   const [active, setActive] = useState({
@@ -19,6 +27,15 @@ const AgentPage = () => {
     viewTours : false
   });
   const [render, setRender] = useState();
+
+  useEffect(() => {
+    for(let agent of sharedData.agents){
+      if(agent.userName === name){
+        setId(agent.id);
+        setOrg(agent.organization);
+      }
+    }
+  });
 
   useEffect(() => {
     if (out === true) {
@@ -35,9 +52,9 @@ const AgentPage = () => {
 
   useEffect(() => {
     if(active.createTours)
-      setRender(<CreateTour/>);
+      setRender(<CreateTour id = {id} org = {org}/>);
     else if(active.viewTours)
-      setRender(<ViewTours/>);
+      setRender(<ViewTours id = {id} org = {org}/>);
   }, [active]);
 
   return (
@@ -101,6 +118,7 @@ const AgentPage = () => {
         <div className={styles.top} style={{ backgroundColor: "black" }}></div>
 
         <div className={styles.tab}>
+          <Title name = {name} org = {org}/>
           {render}
           <Contact />
           <Footer setTop={setTop} />
