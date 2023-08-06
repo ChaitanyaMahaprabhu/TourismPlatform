@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Footer } from "../Footer/Footer";
 import { Contact } from "../Footer/Contact";
 import { Feedback } from "../Feedback/Feedback";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartTitle = () => {
   return (
@@ -29,6 +31,12 @@ const Bill = (props) => {
   const changeHandler = (e) => {
     setCode(e.target.value);
   };
+
+  const clickHandler = (e) => {
+    toast("Payment Successful!");
+    setTimeout(() => {window.location = "/"}, 2000)
+  }
+
   return (
     <div className={styles.billEncompass}>
       <div className={styles.bill}>
@@ -48,6 +56,7 @@ const Bill = (props) => {
             id="code"
             onChange={changeHandler}
             value={code}
+            style = {{width: "8rem"}}
           />
         </div>
         <div className={styles.grandtotal}>
@@ -62,7 +71,7 @@ const Bill = (props) => {
 
         <div className={styles.pay}>
           {" "}
-          <button className="btn btn-success" style={{ width: "50%" }}>
+          <button className="btn btn-success" style={{ width: "50%" }} onClick = {clickHandler}>
             Pay
           </button>
         </div>
@@ -90,6 +99,7 @@ const Cart = () => {
       <Feedback />
       <Contact />
       <Footer setTop={setTop} />
+      <ToastContainer/>
     </div>
   );
 };
