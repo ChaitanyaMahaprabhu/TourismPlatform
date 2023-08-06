@@ -5,6 +5,10 @@ const TourCard = (props) => {
   const [img, setImg] = useState("");
 
   useEffect(() => {
+    props.create(props.tour);
+  }, []);
+
+  useEffect(() => {
     const base64String = props.image;
 
     const base64ToBlob = (base64String) => {
@@ -39,7 +43,7 @@ const TourCard = (props) => {
         <h1 className={styles.titleText}>{props.title}</h1>
         <p className={styles.secondaryText}>{props.description}</p>
 
-        <button className="btn btn-success mt-4" style={{ width: "10rem" }}>
+        <button className="btn btn-success mt-4" onClick = {() => {props.setClicked(true)}} style={{ width: "10rem" }}>
           {props.btn}
         </button>
       </div>

@@ -19,6 +19,7 @@ const AgentPage = () => {
 
   const [view, setView] = useState(false);
   const [id, setId] = useState();
+  const [tour, setTour] = useState();
   const [org, setOrg] = useState();
   const [out, setOut] = useState(false);
   const [top, setTop] = useState(false);
@@ -33,6 +34,7 @@ const AgentPage = () => {
       if(agent.userName === name){
         setId(agent.id);
         setOrg(agent.organization);
+        setTour(agent);
       }
     }
   });
@@ -52,9 +54,9 @@ const AgentPage = () => {
 
   useEffect(() => {
     if(active.createTours)
-      setRender(<CreateTour id = {id} org = {org}/>);
+      setRender(<CreateTour id = {id} org = {org} tour = {tour}/>);
     else if(active.viewTours)
-      setRender(<ViewTours id = {id} org = {org}/>);
+      setRender(<ViewTours id = {id} org = {org} tour = {tour}/>);
   }, [active]);
 
   return (

@@ -38,7 +38,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<Cart/>} />
+          <Route path="/test" element={<TourDetails/>} />
         </Routes>
       </SharedData>
     </>

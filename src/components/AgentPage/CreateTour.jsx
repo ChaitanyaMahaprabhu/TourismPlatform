@@ -56,6 +56,8 @@ const CreateTour = (props) => {
           organization: props.org,
           agentId: props.id,
         });
+
+        setTimeout(() => {window.location = `/AgentPage/${props.tour.userName}`}, 1500);
       }, 1000);
     }
   };
