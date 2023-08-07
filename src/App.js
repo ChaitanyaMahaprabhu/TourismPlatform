@@ -16,6 +16,7 @@ import { Photo } from "./components/Gallery/Photo";
 import { TourDetails } from "./components/TourDetailsPage/TourDetails";
 import { Helpline } from "./components/Helpline/Helpline";
 import { Cart } from "./components/TravellerPage/Cart";
+import { Filter } from "./components/TravellerPage/Filter";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<Cart/>} />
+          <Route path="/test" element={<Filter/>} />
         </Routes>
       </SharedData>
     </>

@@ -1,0 +1,28 @@
+.filterEncompass {
+  width: 100vw;
+  height: 100%;
+  background-color: wheat;
+}
+
+.filterSection{
+    height: 50vh;
+    background-color:plum;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading{
+    font-family: "Merriweather";
+}
+
+.subheading{
+    font-family: "Arimo";
+}
