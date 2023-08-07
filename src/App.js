@@ -37,6 +37,7 @@ function App() {
           <Route path="/CreateTour" element={<CreateTour />} />
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/Helpline" element={<Helpline />} />
+          <Route path="/AdminPage/:name" element={<AdminPage />} />
           <Route path="*" element={<NotFound />} />
 
           {/* test */}

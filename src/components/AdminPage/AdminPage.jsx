@@ -5,11 +5,20 @@ import { context } from "../../context/SharedData";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
+import {Footer} from '../Footer/Footer';
 
 const AdminPage = (props) => {
   const { name } = useParams();
   const sharedData = useContext(context);
   const [agents, setAgents] = useState(sharedData.agents);
+  const [top, setTop] = useState(false);
+
+  useEffect(() => {
+    if (top === true) {
+      window.scrollTo(0, 0);
+      setTop(false);
+    }
+  }, [top]);
 
   useEffect(() => {
     console.log(agents);
@@ -53,7 +62,7 @@ const AdminPage = (props) => {
   return (
     <div className={styles.adminPageEncompass}>
       <div className={styles.title}>
-        <h1 className={styles.heading}>Hello {name}! 👋</h1>
+        <h1 className={styles.heading} style = {{textTransform: "capitalize"}}>Hello {name}! 👋</h1>
         <p className={styles.subheading}>
           You can activate tour agents and add or remove images for the gallery.
         </p>
@@ -104,6 +113,7 @@ const AdminPage = (props) => {
           </tbody>
         </table>
       </div>
+      <Footer setTop = {setTop}/>
       <ToastContainer/>
     </div>
   );

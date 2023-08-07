@@ -1,10 +1,12 @@
 import styles from "./Login.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { context } from "../../context/SharedData";
 
 const Login = () => {
+  const sharedData = useContext(context);
   const pattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   const [gradient, setGradient] = useState(
@@ -55,9 +57,23 @@ const Login = () => {
       })
       .then((resp) => {
         if (resp.status >= 200 && resp.status < 300) {
-          console.log(resp.status);
-          alert("Logged in successfully!");
-          redirect();
+          if (login.Role === "Agent") {
+            let agent = sharedData.agents.filter(
+              (d) => d.userName === login.UserName
+            );
+
+            if (agent[0].status === "true") {
+              console.log(resp.status);
+              alert("Logged in successfully!");
+              redirect();
+            } else {
+              toast("Wait for the admin to authorize you");
+            }
+          } else {
+            console.log(resp.status);
+            alert("Logged in successfully!");
+            redirect();
+          }
         } else {
           toast("Wrong credentials entered! 😶");
         }

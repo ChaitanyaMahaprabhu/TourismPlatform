@@ -30,7 +30,9 @@
 
 .agents{
     width: 100%;
-    height: 100%;
+    height: 60vh;
+    border: solid 0.5rem black;
+    overflow-y: scroll;
 }
 
 td, tr{
