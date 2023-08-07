@@ -23,6 +23,7 @@ const UpdateTour = (props) => {
   });
 
   const [data, setData] = useState({
+    id: props.tour.id,
     title: props.tour.title,
     description: props.tour.description,
     cost: props.tour.cost,
@@ -57,6 +58,7 @@ const UpdateTour = (props) => {
       toast("Fill in all the fields.");
     } else {
       console.log(data);
+      console.log(props.tour.id);
       updateTourDetails(props.tour.id);
       setClicked(true);
       setTimeout(() => {
@@ -173,7 +175,7 @@ const UpdateTour = (props) => {
             borderRadius: `${clicked ? "5rem" : "1rem"}`,
             height: `${clicked ? "5rem" : "3rem"}`,
             width: `${clicked ? "5rem" : "15rem"}`,
-            backgroundColor: `${clicked ? "green" : "white"}`,
+            backgroundColor: `${clicked ? "gold" : "white"}`,
             fontSize: `${clicked ? "2rem" : "1.5rem"}`,
           }}
         >
