@@ -97,8 +97,6 @@ const Cart = () => {
       <Bill />
 
       <Feedback />
-      <Contact />
-      <Footer setTop={setTop} />
       <ToastContainer/>
     </div>
   );

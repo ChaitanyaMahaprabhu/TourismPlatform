@@ -1,6 +1,6 @@
 .cartEncompass{
     height: 100%;
-    width: 100vw;
+    width: 100%;
     background-color: white;
 
     display: grid;
@@ -8,7 +8,7 @@
 }
 
 .cartTitle{
-    width: 100vw;
+    width: 100%;
     height: 30vh;
     background-color:bisque;
     padding: 2rem;
@@ -25,7 +25,7 @@
 }
 
 .cartCard{
-    width: 100vw;
+    width: 100%;
     height: 30vh;
     background-color:white;
 
@@ -54,7 +54,7 @@
 }
 
 .billEncompass{
-    width: 100vw;
+    width: 100%;
     height: 100%;
 
     display: grid;

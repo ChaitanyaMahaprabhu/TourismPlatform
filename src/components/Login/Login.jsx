@@ -16,13 +16,7 @@ const Login = () => {
   );
 
   const redirect = () => {
-    if(login.Role === "Agent"){
     window.location = `/${login.Role}Page/${login.UserName}`;
-    }
-
-    else{
-    window.location = `/${login.Role}Page`;
-    }
   };
 
   const [login, setLogin] = useState({
@@ -33,10 +27,9 @@ const Login = () => {
   });
 
   const clickHandler = (e) => {
-    if(Object.values(login).includes("")){
+    if (Object.values(login).includes("")) {
       toast("Enter all details 😐");
-    }
-    else if (pattern.test(login["UserEmail"]) === false) {
+    } else if (pattern.test(login["UserEmail"]) === false) {
       toast("Check your email 👀");
     } else {
       console.log(login);
@@ -56,9 +49,11 @@ const Login = () => {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(login),
-    }).then((res) => {
+    })
+      .then((res) => {
         return res;
-      }).then((resp) => {
+      })
+      .then((resp) => {
         if (resp.status >= 200 && resp.status < 300) {
           console.log(resp.status);
           alert("Logged in successfully!");
@@ -183,7 +178,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

@@ -5,15 +5,21 @@ import { ToastContainer, toast } from "react-toastify";
 import { Contact } from "../Footer/Contact";
 import { Footer } from "../Footer/Footer";
 import { ViewTours } from "../AgentPage/ViewTours";
+import { Cart } from "./Cart";
+import { useParams } from "react-router-dom";
+import {TravellerTitle} from './TravellerTitle';
 
 const TravellerPage = () => {
+  const {name} = useParams();
+
   const [view, setView] = useState(false);
   const [out, setOut] = useState(false);
   const [top, setTop] = useState(false);
 
   const [render, setRender] = useState();
   const [active, setActive] = useState({
-    viewTours: false,
+    filterTours: false,
+    cart: false,
   });
 
   useEffect(() => {
@@ -30,7 +36,8 @@ const TravellerPage = () => {
   }, [out]);
 
   useEffect(() => {
-    if (active.viewTours) setRender(<ViewTours />);
+    if (active.filterTours) setRender(<ViewTours />);
+    else if (active.cart) setRender(<Cart />);
   }, [active]);
 
   return (
@@ -42,17 +49,14 @@ const TravellerPage = () => {
             <span
               class="material-symbols-outlined"
               style={{ fontSize: "2rem" }}
+              onClick={() => {
+                setActive((prev) => ({
+                  filterTours: true,
+                  cart: false,
+                }));
+              }}
             >
-              edit
-            </span>
-          </h4>
-
-          <h4 className={styles.options}>
-            <span
-              class="material-symbols-outlined"
-              style={{ fontSize: "2rem" }}
-            >
-              edit_note
+              filter_alt
             </span>
           </h4>
 
@@ -62,12 +66,12 @@ const TravellerPage = () => {
               style={{ fontSize: "2rem" }}
               onClick={() => {
                 setActive((prev) => ({
-                  createTours: false,
-                  viewTours: true,
+                  filterTours: false,
+                  cart: true,
                 }));
               }}
             >
-              search
+              shopping_cart
             </span>
           </h4>
         </div>
@@ -103,6 +107,7 @@ const TravellerPage = () => {
         <div className={styles.top} style={{ backgroundColor: "black" }}></div>
 
         <div className={styles.tab}>
+          <TravellerTitle name={name}/>
           {render}
           <Contact />
           <Footer setTop={setTop} />
