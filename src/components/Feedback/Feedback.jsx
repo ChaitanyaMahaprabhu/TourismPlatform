@@ -36,6 +36,7 @@ const Feedback = () => {
     let feedback = { description: review, rating: totalStars + 1, feedbackDate: date};
 
     post(feedback);
+    window.location.reload();
   };
 
   const changeHandler = (e) => {

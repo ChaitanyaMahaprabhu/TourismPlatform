@@ -25,9 +25,9 @@ const Bold = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (users < sharedData.users) setUsers(users + 2);
-      if (trips < sharedData.trips) setTrips(trips + 4);
-      if (reviews < sharedData.reviews) setReviews(reviews + 3);
+      if (users < (sharedData.travellers.length+sharedData.agents.length)) setUsers(users + 2);
+      if (trips < sharedData.tours.length) setTrips(trips + 2);
+      if (reviews < sharedData.feedbacks.length) setReviews(reviews + 1);
     }, 100);
   }, [users, trips, reviews]);
 
