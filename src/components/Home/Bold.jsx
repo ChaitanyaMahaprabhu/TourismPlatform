@@ -5,6 +5,10 @@ import { context } from "../../context/SharedData";
 
 const Bold = (props) => {
   const sharedData = useContext(context);
+  const travellersC = sharedData.travellers.length;
+  const agentsC = sharedData.agents.length;
+  const toursC = sharedData.tours.length;
+  const feedbacksC = sharedData.feedbacks.length;
 
   const [image, setImage] = useState(Math.round(Math.random() * 9 + 1));
   const [users, setUsers] = useState(0);
@@ -25,11 +29,11 @@ const Bold = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (users < (sharedData.travellers.length+sharedData.agents.length)) setUsers(users + 2);
-      if (trips < sharedData.tours.length) setTrips(trips + 2);
-      if (reviews < sharedData.feedbacks.length) setReviews(reviews + 1);
+      if (users < (travellersC+agentsC)) {setUsers(prev => (prev+2));}
+      if (trips < toursC) {setTrips(prev => (prev + 2));}
+      if (reviews < feedbacksC) {setReviews(prev => (prev+1));}
     }, 100);
-  }, [users, trips, reviews]);
+  });
 
   return (
     <div className={styles.boldEncompass}>
