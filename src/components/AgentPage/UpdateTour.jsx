@@ -1,4 +1,4 @@
-import styles from "./CreateTour.module.css";
+import styles from "./UpdateTour.module.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,15 +7,15 @@ import { context } from "../../context/SharedData";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-const CreateTour = (props) => {
+const UpdateTour = (props) => {
   const [clicked, setClicked] = useState(false);
-  const {name} = useParams();
+  const { name } = useParams();
   const sharedData = useContext(context);
   const [id, setId] = useState();
 
   useEffect(() => {
-    for(let agen of sharedData.agents){
-      if(agen.userName === name){
+    for (let agen of sharedData.agents) {
+      if (agen.userName === name) {
         setId(agen.id);
         console.log(agen);
       }
@@ -23,13 +23,13 @@ const CreateTour = (props) => {
   });
 
   const [data, setData] = useState({
-    title: "",
-    description: "",
-    cost: 0,
-    image: "",
-    city: "",
-    organization: props.org,
-    agentId: props.id,
+    title: props.tour.title,
+    description: props.tour.description,
+    cost: props.tour.cost,
+    image: props.tour.image,
+    city: props.tour.city,
+    organization: props.tour.organization,
+    agentId: props.tour.agentId,
   });
 
   const handleImageChange = (event) => {
@@ -40,9 +40,7 @@ const CreateTour = (props) => {
       fileReader.onload = (event) => {
         const fileData = event.target.result;
         const byteArray = new Uint8Array(fileData);
-        const base64String = btoa(
-          String.fromCharCode.apply(null, byteArray)
-        );
+        const base64String = btoa(String.fromCharCode.apply(null, byteArray));
         setData((prev) => ({
           ...prev,
           image: base64String,
@@ -58,22 +56,16 @@ const CreateTour = (props) => {
       console.log(data);
       toast("Fill in all the fields.");
     } else {
-      post();
+      console.log(data);
+      updateTourDetails(props.tour.id);
       setClicked(true);
       setTimeout(() => {
-        toast(`Tour: ${data.title} - created! ✨`);
+        toast(`Tour: ${data.title} - updated! ✨`);
         setClicked(false);
-        setData({
-          title: "",
-          description: "",
-          cost: 0,
-          image: "",
-          city: "",
-          organization: props.org,
-          agentId: props.id,
-        });
-
-        setTimeout(() => {window.location.reload()}, 1500);
+        setTimeout(() => {
+          props.setUpdate(false);
+          window.location.reload();
+        }, 1500);
       }, 1000);
     }
   };
@@ -92,24 +84,32 @@ const CreateTour = (props) => {
     }
   };
 
-  const post = () => {
-    fetch("https://localhost:7064/api/Tours", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .catch((err) => {
-        console.log(err);
+  const updateTourDetails = async (id) => {
+    try {
+      const response = await fetch(`https://localhost:7064/api/Tours/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+      if (response.ok) {
+        console.log("Tour data updated successfully");
+        toast("Tour data updated successfully!");
+        console.log(data);
+      } else {
+        console.error("Error updating tour data:", response.statusText);
+        console.log(data);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
-    <div className={styles.createTourEncompass}>
+    <div className={styles.updateTourEncompass}>
       <div className={styles.what}>
-        <h1>New Tour Plan</h1>
+        <h1>Update Tour Plan</h1>
       </div>
       <div className={styles.titleInput}>
         <input
@@ -177,7 +177,7 @@ const CreateTour = (props) => {
             fontSize: `${clicked ? "2rem" : "1.5rem"}`,
           }}
         >
-          {clicked ? "👍" : "Submit"}
+          {clicked ? "👍" : "Update"}
         </button>
       </div>
       <ToastContainer />
@@ -185,4 +185,4 @@ const CreateTour = (props) => {
   );
 };
 
-export { CreateTour };
+export {UpdateTour};
