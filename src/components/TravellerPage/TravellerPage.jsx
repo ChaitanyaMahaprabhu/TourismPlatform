@@ -8,6 +8,7 @@ import { ViewTours } from "../AgentPage/ViewTours";
 import { Cart } from "./Cart";
 import { useParams } from "react-router-dom";
 import {TravellerTitle} from './TravellerTitle';
+import { Filter } from "./Filter";
 
 const TravellerPage = () => {
   const {name} = useParams();
@@ -18,7 +19,7 @@ const TravellerPage = () => {
 
   const [render, setRender] = useState();
   const [active, setActive] = useState({
-    filterTours: false,
+    filterTours: true,
     cart: false,
   });
 
@@ -36,7 +37,7 @@ const TravellerPage = () => {
   }, [out]);
 
   useEffect(() => {
-    if (active.filterTours) setRender(<ViewTours />);
+    if (active.filterTours) setRender(<Filter />);
     else if (active.cart) setRender(<Cart />);
   }, [active]);
 

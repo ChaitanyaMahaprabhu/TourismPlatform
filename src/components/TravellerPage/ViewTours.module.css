@@ -1,0 +1,24 @@
+.viewToursEncompass{
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+
+    background-color:papayawhip;
+}
+
+.what{
+    background-color: black;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+
+    font-family: "Merriweather";
+
+    margin-bottom: 2rem;
+}

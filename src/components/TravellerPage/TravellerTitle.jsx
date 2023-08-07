@@ -4,7 +4,7 @@ const TravellerTitle = (props) => {
     useEffect(() => {console.log(props.agent)});
     return(
         <div className={styles.titleEncompass}>
-            <h1 className={styles.heading}>Hello {props.name} 👋</h1>
+            <h1 className={styles.heading} style = {{textTransform: "capitalize"}}>Hello {props.name} 👋</h1>
         </div>
     );
 }
