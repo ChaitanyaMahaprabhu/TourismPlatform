@@ -1,6 +1,8 @@
 import styles from "./Feedback.module.css";
 import { useState } from "react";
+
 const Feedback = () => {
+  const date = new Date().toISOString();
   const [stars, setStars] = useState({
     2: false,
     3: false,
@@ -17,6 +19,7 @@ const Feedback = () => {
       body: JSON.stringify(feedback),
     })
       .then((res) => {
+        alert("Thank you for your feedback! 😃");
         return res.json();
       })
       .catch((err) => {
@@ -30,7 +33,7 @@ const Feedback = () => {
       else return total;
     });
 
-    let feedback = { description: review, rating: totalStars + 1 };
+    let feedback = { description: review, rating: totalStars + 1, feedbackDate: date};
 
     post(feedback);
   };

@@ -5,13 +5,15 @@ import { dummyReviews } from "../../constants/constants";
 import { ReviewCard } from "./ReviewCard";
 const Reviews = () => {
   const data = useContext(context);
+  const reviews = data.feedbacks;
+
   useEffect(() => {
     console.log(data.questions);
   });
 
   return (
     <div className={styles.faqEncompass}>
-        {dummyReviews.map((data) => (<ReviewCard name = {data.name} stars = {data.stars} duration = {data.duration} review = {data.review}/>))}
+        {reviews.map((data) => (<ReviewCard stars = {data.rating} duration = {data.feedbackDate} review = {data.description}/>))}
     </div>
   );
 };
