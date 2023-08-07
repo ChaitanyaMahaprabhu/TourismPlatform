@@ -1,4 +1,6 @@
 import styles from "./Footer.module.css";
+import {Link} from 'react-router-dom';
+
 const Footer = (props) => {
   return (
     <div className={styles.footerEncompass}>
@@ -37,10 +39,15 @@ const Footer = (props) => {
             Products
           </h1>
           <br />
-          <h2 className={styles.navs}>Make My Trip</h2>
+          <h2 className={styles.navs}><a href = 'https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3'>Make My Trip</a></h2>
           <h2 className={styles.navs}>
             <a href="https://play.google.com/store/apps/details?id=com.fielda.android&hl=en&gl=US">
               Fielda
+            </a>
+          </h2>
+          <h2 className={styles.navs}>
+            <a href="/">
+              Home
             </a>
           </h2>
         </div>
