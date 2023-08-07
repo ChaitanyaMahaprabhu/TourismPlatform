@@ -3,18 +3,19 @@ import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AYS } from "../AreYouSure/AYS";
-import {UpdateTour} from "../AgentPage/UpdateTour";
 
 const TourDetails = (props) => {
   const [img, setImg] = useState("");
   const [view, setView] = useState(false);
-  const [remove, setRemove] = useState(false);
-  const [update, setUpdate] = useState(false);
+  const [add, setAdd] = useState(false);
 
   useEffect(() => {
-    if (remove) {
+    if(add === true){
+      localStorage.setItem(props.tour.title, props.tour.cost);
+      setView(false);
+      toast("Added to cart!");
     }
-  });
+  }, [add]);
 
   useEffect(() => {
     const base64String = props.tour.image;
@@ -41,21 +42,12 @@ const TourDetails = (props) => {
     displayImageFromBlob(blob);
   }, [props.image]);
 
-  const cartHandler = (e) => {
-    setView(false);
-    toast("Tour added to cart!");
-  };
-
   return (
-    <>
-      {update ? (
-        <UpdateTour tour={props.tour} setUpdate = {setUpdate}/>
-      ) : (
         <>
           {view && (
             <AYS
               setView={setView}
-              setCommand={cartHandler}
+              setCommand={setAdd}
               message="Add tour to cart?"
             />
           )}
@@ -87,10 +79,7 @@ const TourDetails = (props) => {
             </div>
             <ToastContainer />
           </div>
-        </>
-      )}
-    </>
-  );
+        </>)
 };
 
 export { TourDetails };

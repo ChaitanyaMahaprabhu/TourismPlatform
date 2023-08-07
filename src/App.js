@@ -18,6 +18,7 @@ import { Helpline } from "./components/Helpline/Helpline";
 import { Cart } from "./components/TravellerPage/Cart";
 import { Filter } from "./components/TravellerPage/Filter";
 import { AdminPage } from "./components/AdminPage/AdminPage";
+import { Protected } from "./components/Protected";
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
           <Route path="/Helpline" element={<Helpline />} />
           <Route path="/AdminPage/:name" element={<AdminPage />} />
           <Route path="*" element={<NotFound />} />
+
+          {/* <Route path="/AdminPage/:name" element={<Protected Component={AdminPage} />} />
+        <Route path="/AgentPage/:name" element={<Protected Component = {AgentPage} />} />
+        <Route path="/TravellerPage/:name" element={<Protected Component ={TravellerPage} />} /> */}
 
           {/* test */}
           <Route path="/test" element={<AdminPage/>} />

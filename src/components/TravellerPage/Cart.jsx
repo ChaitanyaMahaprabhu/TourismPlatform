@@ -34,7 +34,7 @@ const Bill = (props) => {
 
   const clickHandler = (e) => {
     toast("Payment Successful!");
-    setTimeout(() => {window.location = "/"}, 2000)
+    // setTimeout(() => {window.location = "/"}, 2000)
   }
 
   return (
@@ -42,11 +42,11 @@ const Bill = (props) => {
       <div className={styles.bill}>
         <div className={styles.subtotal}>
           <h1 className={styles.billHeading}>Subtotal</h1>
-          <h1 className={styles.billCost}>₹ 123</h1>
+          <h1 className={styles.billCost}>₹ {props.total}</h1>
         </div>
         <div className={styles.tax}>
           <h1 className={styles.billHeading}>Sales Tax</h1>
-          <h1 className={styles.billCost}>₹ 12</h1>
+          <h1 className={styles.billCost}>₹ {(4*props.total)/100}</h1>
         </div>
         <div className={styles.coupon}>
           <h1 className={styles.billHeading}>Coupon Code</h1>
@@ -65,7 +65,7 @@ const Bill = (props) => {
             className={styles.billCost}
             style={{ fontSize: "2rem", color: "green" }}
           >
-            ₹ 12
+            ₹ {code === "chaitanya" ? 0 : (props.total + (4*props.total)/100)}
           </h1>
         </div>
 
@@ -88,13 +88,32 @@ const Cart = () => {
       setTop(false);
     }
   }, [top]);
+
+  const [all, setAll] = useState([]);
+  const [total, setTotal] = useState(0);
+  function getAllDataFromLocalStorage() {
+    let total = 0;
+    const allData = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const value = localStorage.getItem(key);
+      total += parseInt(value, 10);
+      allData[key] = value;
+    }
+    setAll(Object.keys(allData));
+    setTotal(total);
+  }
+
+  useEffect(() => {
+    getAllDataFromLocalStorage();
+  });
+
   
   return (
     <div className={styles.cartEncompass}>
       <CartTitle />
-      <CartCard item="Italy" cost="120000" />
-      <CartCard item="Greece" cost="140000" />
-      <Bill />
+      {all.map(d => (<CartCard item={d} cost={localStorage.getItem(d)} />))}
+      <Bill total = {total}/>
 
       <Feedback />
       <ToastContainer/>

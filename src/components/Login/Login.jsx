@@ -56,6 +56,8 @@ const Login = () => {
         return res;
       })
       .then((resp) => {
+        console.log(resp.status);
+        
         if (resp.status >= 200 && resp.status < 300) {
           if (login.Role === "Agent") {
             let agent = sharedData.agents.filter(
@@ -64,6 +66,7 @@ const Login = () => {
 
             if (agent[0].status === "true") {
               console.log(resp.status);
+              console.log(resp);
               alert("Logged in successfully!");
               redirect();
             } else {

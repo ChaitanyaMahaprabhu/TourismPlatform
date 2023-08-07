@@ -10,15 +10,29 @@ const Feedback = () => {
 
   const [review, setReview] = useState("");
 
+  const post = (feedback) => {
+    fetch("https://localhost:7064/api/Feedbacks", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(feedback),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const clickHandler = (e) => {
     let totalStars = Object.values(stars).reduce((total, data) => {
       if (data == true) return total + data;
       else return total;
     });
 
-    let feedback = { review: review, stars: totalStars + 1 };
+    let feedback = { description: review, rating: totalStars + 1 };
 
-    console.log(feedback);
+    post(feedback);
   };
 
   const changeHandler = (e) => {
@@ -111,8 +125,8 @@ const Feedback = () => {
           <textarea
             className="form-control"
             rows="5"
-            id="review"
-            name="review"
+            id="description"
+            name="description"
             style={{ height: "15rem" }}
             onChange={changeHandler}
           ></textarea>
