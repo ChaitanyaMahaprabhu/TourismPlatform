@@ -1,0 +1,38 @@
+.adminPageEncompass{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 100vw;
+    height: 100%;
+
+    background-color: white;
+}
+
+.title{
+    padding: 2rem;
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading{
+    font-family: "Merriweather";
+    font-size: 2.5rem;
+}
+
+.subheading{
+    font-family: "Commissioner";
+    font-size: 1.5rem;
+}
+
+.agents{
+    width: 100%;
+    height: 100%;
+}
+
+td, tr{
+    text-align: center;
+}

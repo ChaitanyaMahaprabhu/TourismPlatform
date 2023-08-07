@@ -17,6 +17,7 @@ import { TourDetails } from "./components/TourDetailsPage/TourDetails";
 import { Helpline } from "./components/Helpline/Helpline";
 import { Cart } from "./components/TravellerPage/Cart";
 import { Filter } from "./components/TravellerPage/Filter";
+import { AdminPage } from "./components/AdminPage/AdminPage";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
 
           {/* test */}
-          <Route path="/test" element={<Filter/>} />
+          <Route path="/test" element={<AdminPage/>} />
         </Routes>
       </SharedData>
     </>

@@ -143,7 +143,8 @@ const SharedData = (props) => {
     gallery: gallery,
     tours: tours,
     travellers: travellers,
-    bookings: bookings
+    bookings: bookings,
+    setAgents: setAgents
   };
 
   return <context.Provider value={data}>{props.children}</context.Provider>;
