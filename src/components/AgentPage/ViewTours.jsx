@@ -11,7 +11,7 @@ const ViewTours = (props) => {
   const [rend, setRend] = useState();
 
   const create = (tour) => {
-    setRend(<TourDetails tour={tour} />);
+    setRend(<TourDetails tour={tour} agent = {props.agent}/>);
   };
 
   useEffect(() => {
@@ -21,6 +21,9 @@ const ViewTours = (props) => {
         t.push(tour);
       }
     }
+    console.log(props.agent.id);
+    console.log(t);
+    console.log(sharedData.tours);
     setTours(t);
   }, [props.id, sharedData.tours]);
 

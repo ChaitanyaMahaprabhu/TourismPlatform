@@ -19,7 +19,7 @@ const AgentPage = () => {
 
   const [view, setView] = useState(false);
   const [id, setId] = useState();
-  const [tour, setTour] = useState();
+  const [agent, setAgent] = useState();
   const [org, setOrg] = useState();
   const [out, setOut] = useState(false);
   const [top, setTop] = useState(false);
@@ -30,11 +30,12 @@ const AgentPage = () => {
   const [render, setRender] = useState();
 
   useEffect(() => {
-    for(let agent of sharedData.agents){
-      if(agent.userName === name){
-        setId(agent.id);
-        setOrg(agent.organization);
-        setTour(agent);
+    for(let agen of sharedData.agents){
+      if(agen.userName === name){
+        setId(agen.id);
+        setOrg(agen.organization);
+        setAgent(agen);
+        console.log(agen);
       }
     }
   });
@@ -54,9 +55,9 @@ const AgentPage = () => {
 
   useEffect(() => {
     if(active.createTours)
-      setRender(<CreateTour id = {id} org = {org} tour = {tour}/>);
+      setRender(<CreateTour id = {id} org = {org} agent = {agent}/>);
     else if(active.viewTours)
-      setRender(<ViewTours id = {id} org = {org} tour = {tour}/>);
+      setRender(<ViewTours id = {id} org = {org} agent = {agent}/>);
   }, [active]);
 
   return (
@@ -120,7 +121,7 @@ const AgentPage = () => {
         <div className={styles.top} style={{ backgroundColor: "black" }}></div>
 
         <div className={styles.tab}>
-          <Title name = {name} org = {org}/>
+          <Title name = {name} org = {org} agent = {agent}/>
           {render}
           <Contact />
           <Footer setTop={setTop} />

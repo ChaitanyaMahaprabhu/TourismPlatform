@@ -2,10 +2,19 @@ import styles from "./TourDetails.module.css";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {AYS} from '../AreYouSure/AYS';
 
 
 const TourDetails = (props) => {
   const [img, setImg] = useState("");
+  const [view, setView] = useState(false);
+  const [remove, setRemove] = useState(false);
+
+  useEffect(() => {
+    if(remove){
+      deleteHandler();
+    }
+  });
   
   useEffect(() => {
     const base64String = props.tour.image;
@@ -39,7 +48,6 @@ const TourDetails = (props) => {
       });
       if (response.ok) {
         console.log("Tour data deleted successfully");
-        toast("Tour data deleted successfully!");
       } else {
         console.error("Error deleting doctor:", response.statusText);
       }
@@ -50,11 +58,15 @@ const TourDetails = (props) => {
 
   const deleteHandler = (e) => {
     deleteTour(props.tour.id);
+    setView(false);
+    toast("Tour Deleted!");
 
-    setTimeout(() => {window.location = `/AgentPage/${props.userName}`}, 1500);
+    setTimeout(() => {window.location = `/AgentPage/${props.agent.userName}`}, 1500);
   };
 
   return (
+    <>
+    {view && <AYS setView = {setView} setCommand = {setRemove} message = "Delete this tour?"/>}
     <div className={styles.tourDetailsEncompass}>
       <div className={styles.imageSection}>
         <img
@@ -72,10 +84,11 @@ const TourDetails = (props) => {
       </div>
       <div className={styles.buttonSection}>
         <button className = "btn btn-warning" style = {{width: "20rem", fontSize: "1.5rem"}}>Edit This Tour</button>
-        <button className = "btn btn-danger" style = {{width: "20rem", fontSize: "1.5rem", marginTop: '2rem'}} onClick = {deleteHandler}>Delete This Tour</button>
+        <button className = "btn btn-danger" style = {{width: "20rem", fontSize: "1.5rem", marginTop: '2rem'}} onClick = {() => {setView(true)}}>Delete This Tour</button>
       </div>
       <ToastContainer/>
     </div>
+    </>
   );
 };
 
