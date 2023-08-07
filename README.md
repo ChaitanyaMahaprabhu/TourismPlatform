@@ -1,7 +1,12 @@
-![BB3_1](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/cbd23870-ea74-4ca0-91cb-02e580ace5fb)
-![BB3_2](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/f1cf76b2-519b-4d5c-98af-8b507854937f)
-![BB3_3](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/bd7992ad-093a-4914-b171-0d4ac7c91f09)
-![BB3_4](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/aa3887ac-e9ce-4d67-aaaf-a94407db427e)
+![B3_1](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/854949be-6757-4b57-8696-3a36e22b2992)
+![B3_2](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/6de63ba8-868d-4d9b-95a0-56cc58f9997f)
+![B3_3](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/053fe454-c845-4974-8786-9a614a2a2f24)
+![B3_4](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/b819d88c-f9a2-4102-91f7-8e28f6972b91)
+![B3_5](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/f329f775-371a-4075-ab45-2e29efe71234)
+![B3_6](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/7753b981-1fc0-42cb-bc2b-402ea2a28dc1)
+![B3_7](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/4d962572-84f4-484d-b940-13644490163a)
+![B3_8](https://github.com/chaitanya-mahaprabhu-kanini/Big-Bang-3/assets/125178445/7fea1db1-dfb1-4866-9cfd-be06e97588c7)
+
 
 # Getting Started with Create React App
 
