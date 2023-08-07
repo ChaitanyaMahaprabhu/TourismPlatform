@@ -101,6 +101,7 @@ const AdminPage = (props) => {
 
   const imageHandler = (e) => {
     post();
+    toast("Images added to the database!");
     console.log(images);
   };
 
