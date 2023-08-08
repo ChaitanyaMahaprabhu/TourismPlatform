@@ -1,5 +1,8 @@
 import styles from "./Contact.module.css";
 import { useState } from "react";
+import emailjs from 'emailjs-com';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [details, setDetails] = useState({
@@ -16,7 +19,28 @@ const Contact = () => {
   };
 
   const clickHandler = (e) => {
+    window.alert("Successfully sent!");
     console.log(details);
+
+    emailjs
+      .send(
+        "service_s4uvbyk",
+        "template_2kztw4h",
+        {
+          to_email: "chaitanya@kanini.com",
+          from_name: details.name,
+          message: details.message,
+          email: details.email
+        },
+        "gs3CjlRbzWZ_N809E"
+      )
+      .then(() => {
+        console.log("Success!");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
     setDetails({
       name: "",
       email: "",
@@ -114,6 +138,7 @@ const Contact = () => {
           📧
         </button>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
