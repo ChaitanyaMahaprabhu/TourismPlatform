@@ -39,6 +39,12 @@ const Bill = (props) => {
     setCode(e.target.value);
   };
 
+  useEffect(() => {
+    if(code === "chaitanya"){
+    toast("Coupon applied! - 100Rs off!");
+    }
+  }, [code]);
+
   const clickHandler = (e) => {
     toast("Payment Successful!");
     // setTimeout(() => {window.location = "/"}, 2000)
@@ -74,7 +80,7 @@ const Bill = (props) => {
               style={{ fontSize: "2rem", color: "green" }}
             >
               ₹{" "}
-              {code === "chaitanya" ? 0 : props.total + (4 * props.total) / 100}
+              {code === "chaitanya" ? 100 : props.total + (4 * props.total) / 100}
             </h1>
           </div>
 
