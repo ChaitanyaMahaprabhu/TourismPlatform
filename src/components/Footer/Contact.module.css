@@ -1,6 +1,6 @@
 .contactEncompass {
   width: 100%;
-  height: 90vh;
+  height: 100%;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -67,3 +67,11 @@
 .tab{
   margin: 2rem;
 }
+
+.mainOptions:hover{
+  cursor: pointer;
+}
+
+.subOptions:hover{
+  cursor: pointer;
+}

@@ -20,7 +20,12 @@ const CartTitle = () => {
 
 const CartCard = (props) => {
   return (
-    <div className={styles.cartCard}>
+    <div className={styles.cartCard} onClick = {() => {
+      let flag = window.confirm("Delete tour?");
+      if(flag === true){
+      localStorage.removeItem(props.item);
+      }
+    }}>
       <h1 className={styles.cardHeading}>{props.item}</h1>
       <h1 className={styles.cardCost}>₹ {props.cost}</h1>
     </div>
@@ -124,7 +129,7 @@ const Cart = () => {
       <CartTitle />
       <div ref = {reference}>
       {all.map((d) => (
-        <CartCard item={d} cost={localStorage.getItem(d)} onClick = {() => {localStorage.removeItem(d)}} className = {styles.del}/>
+        <CartCard item={d} cost={localStorage.getItem(d)} className = {styles.del}/>
       ))}
       <Bill total={total} />
       <ReactToPrint

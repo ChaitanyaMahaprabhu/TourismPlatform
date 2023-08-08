@@ -65,3 +65,7 @@
 .submit {
   height: 1rem;
 }
+
+.stars:hover{
+  cursor: pointer;
+}

@@ -104,6 +104,9 @@
     align-items: center;
     padding: 2rem 1rem 2rem 1rem;
 }
-.del:hover{
+.cardHeading:hover{
     background-color: red;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
 }
