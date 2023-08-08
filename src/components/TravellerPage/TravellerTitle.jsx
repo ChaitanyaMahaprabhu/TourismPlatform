@@ -5,6 +5,7 @@ const TravellerTitle = (props) => {
     return(
         <div className={styles.titleEncompass}>
             <h1 className={styles.heading} style = {{textTransform: "capitalize"}}>Hello {props.name} 👋</h1>
+            <p className={styles.subHeading}>It's good to see you! Filter through provided tours and complete payment when ready.</p>
         </div>
     );
 }
