@@ -16,6 +16,10 @@ const Bold = (props) => {
   const [reviews, setReviews] = useState(0);
 
   useEffect(() => {
+    localStorage.clear();
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       while (true) {
         let rndm = Math.round(Math.random() * 9 + 1);

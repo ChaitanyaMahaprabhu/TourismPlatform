@@ -17,6 +17,10 @@ const Login = () => {
     })`
   );
 
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   const redirect = () => {
     window.location = `/${login.Role}Page/${login.UserName}`;
   };

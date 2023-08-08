@@ -1,10 +1,11 @@
 import styles from "./Cart.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Footer } from "../Footer/Footer";
 import { Contact } from "../Footer/Contact";
 import { Feedback } from "../Feedback/Feedback";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReactToPrint from "react-to-print";
 
 const CartTitle = () => {
   return (
@@ -27,6 +28,7 @@ const CartCard = (props) => {
 };
 
 const Bill = (props) => {
+  const reference = useRef();
   const [code, setCode] = useState("");
   const changeHandler = (e) => {
     setCode(e.target.value);
@@ -35,45 +37,52 @@ const Bill = (props) => {
   const clickHandler = (e) => {
     toast("Payment Successful!");
     // setTimeout(() => {window.location = "/"}, 2000)
-  }
+  };
 
   return (
-    <div className={styles.billEncompass}>
-      <div className={styles.bill}>
-        <div className={styles.subtotal}>
-          <h1 className={styles.billHeading}>Subtotal</h1>
-          <h1 className={styles.billCost}>₹ {props.total}</h1>
-        </div>
-        <div className={styles.tax}>
-          <h1 className={styles.billHeading}>Sales Tax</h1>
-          <h1 className={styles.billCost}>₹ {(4*props.total)/100}</h1>
-        </div>
-        <div className={styles.coupon}>
-          <h1 className={styles.billHeading}>Coupon Code</h1>
-          <input
-            type="text"
-            name="code"
-            id="code"
-            onChange={changeHandler}
-            value={code}
-            style = {{width: "8rem"}}
-          />
-        </div>
-        <div className={styles.grandtotal}>
-          <h1 className={styles.billHeading}>Grand Total</h1>
-          <h1
-            className={styles.billCost}
-            style={{ fontSize: "2rem", color: "green" }}
-          >
-            ₹ {code === "chaitanya" ? 0 : (props.total + (4*props.total)/100)}
-          </h1>
-        </div>
+    <div ref={reference}>
+      <div className={styles.billEncompass}>
+        <div className={styles.bill}>
+          <div className={styles.subtotal}>
+            <h1 className={styles.billHeading}>Subtotal</h1>
+            <h1 className={styles.billCost}>₹ {props.total}</h1>
+          </div>
+          <div className={styles.tax}>
+            <h1 className={styles.billHeading}>Sales Tax</h1>
+            <h1 className={styles.billCost}>₹ {(4 * props.total) / 100}</h1>
+          </div>
+          <div className={styles.coupon}>
+            <h1 className={styles.billHeading}>Coupon Code</h1>
+            <input
+              type="text"
+              name="code"
+              id="code"
+              onChange={changeHandler}
+              value={code}
+              style={{ width: "8rem" }}
+            />
+          </div>
+          <div className={styles.grandtotal}>
+            <h1 className={styles.billHeading}>Grand Total</h1>
+            <h1
+              className={styles.billCost}
+              style={{ fontSize: "2rem", color: "green" }}
+            >
+              ₹{" "}
+              {code === "chaitanya" ? 0 : props.total + (4 * props.total) / 100}
+            </h1>
+          </div>
 
-        <div className={styles.pay}>
-          {" "}
-          <button className="btn btn-success" style={{ width: "50%" }} onClick = {clickHandler}>
-            Pay
-          </button>
+          <div className={styles.pay}>
+            {" "}
+            <button
+              className="btn btn-success"
+              style={{ width: "50%" }}
+              onClick={clickHandler}
+            >
+              Pay
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -108,15 +117,29 @@ const Cart = () => {
     getAllDataFromLocalStorage();
   });
 
-  
+  const reference = useRef();
+
   return (
     <div className={styles.cartEncompass}>
       <CartTitle />
-      {all.map(d => (<CartCard item={d} cost={localStorage.getItem(d)} />))}
-      <Bill total = {total}/>
+      <div ref = {reference}>
+      {all.map((d) => (
+        <CartCard item={d} cost={localStorage.getItem(d)} onClick = {() => {localStorage.removeItem(d)}} className = {styles.del}/>
+      ))}
+      <Bill total={total} />
+      <ReactToPrint
+              trigger={() => (
+                <button className="btn btn-dark" style={{ width: "100%" }}>
+                  Print
+                </button>
+              )}
+
+              content = {() => reference.current}
+            />
+      </div>
 
       <Feedback />
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

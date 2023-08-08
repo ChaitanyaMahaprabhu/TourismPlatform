@@ -104,3 +104,6 @@
     align-items: center;
     padding: 2rem 1rem 2rem 1rem;
 }
+.del:hover{
+    background-color: red;
+}
