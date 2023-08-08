@@ -31,6 +31,11 @@ const Filter = () => {
   }, []);
 
   useEffect(() => {    
+    if(filter.minCost === 0 && filter.maxCost === 0 && filter.org === "" && filter.city === ""){
+      setFiltered(tours);
+    }
+
+    else{
     setFiltered(tours.filter(d => {
       let min = parseInt(filter.minCost, 10);
       let max = parseInt(filter.maxCost, 10);
@@ -41,6 +46,7 @@ const Filter = () => {
 
       return false;
     }));
+  }
   }, [filter, tours]);
 
   const changeHandler = e => {

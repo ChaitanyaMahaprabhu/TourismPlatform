@@ -129,7 +129,7 @@ const Cart = () => {
       <Bill total={total} />
       <ReactToPrint
               trigger={() => (
-                <button className="btn btn-dark" style={{ width: "100%" }}>
+                <button className="btn btn-primary" style={{ width: "100%" }}>
                   Print
                 </button>
               )}
