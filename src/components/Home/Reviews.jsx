@@ -13,7 +13,7 @@ const Reviews = () => {
 
   return (
     <div className={styles.faqEncompass}>
-        {reviews.map((data) => (<ReviewCard stars = {data.rating} duration = {data.feedbackDate} review = {data.description}/>))}
+        {reviews.map((data) => {if(data.rating >= 3) return(<ReviewCard stars = {data.rating} duration = {data.feedbackDate} review = {data.description}/>)})}
     </div>
   );
 };

@@ -33,9 +33,15 @@ const Bold = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (users < (travellersC+agentsC)) {setUsers(prev => (prev+2));}
-      if (trips < toursC) {setTrips(prev => (prev + 2));}
-      if (reviews < feedbacksC) {setReviews(prev => (prev+1));}
+      if (users < travellersC + agentsC) {
+        setUsers((prev) => prev + 2);
+      }
+      if (trips < toursC) {
+        setTrips((prev) => prev + 2);
+      }
+      if (reviews < feedbacksC) {
+        setReviews((prev) => prev + 1);
+      }
     }, 100);
   });
 
@@ -78,8 +84,11 @@ const Bold = (props) => {
                 </span>
               </Link>
             </h5>
-            <h5 className={styles.logreg} style = {{textAlign: "center", paddingTop: "0.5rem"}}>
-              <Link to="/Gallery" style={{ color: "white"}}>
+            <h5
+              className={styles.logreg}
+              style={{ textAlign: "center", paddingTop: "0.5rem" }}
+            >
+              <Link to="/Gallery" style={{ color: "white" }}>
                 <span class="material-symbols-outlined">photo_library</span>
               </Link>
             </h5>
